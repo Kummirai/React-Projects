@@ -30,6 +30,15 @@ function App() {
     // ]
 
     const [movies, setMovies] = useState([]);
+    const randomIndex = Math.round(Math.random() * movies.length);
+
+    const [movieIndex, setMovieIndex] = useState(randomIndex);
+
+
+    useEffect(() => {
+        setMovieIndex(randomIndex);
+    }, [movies]);
+
     useEffect(() => {
         const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
         const options = {
@@ -47,7 +56,7 @@ function App() {
     }, []);
   return (
     <>
-        <Home navLinks={navLinks} movies={movies} />
+        <Home navLinks={navLinks} movies={movies} movieIndex={movieIndex} />
     </>
   )
 }
