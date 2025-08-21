@@ -7,10 +7,10 @@ const HomeMovieCard = ({movie}) => {
                 <img className="img-fluid object-fit-cover rounded-3 shadow-lg" src={"https://image.tmdb.org/t/p/w185/" + movie.poster_path} alt="main image" />
             </div>
             <div className="d-flex flex-column text-white mt-3">
-                <h2 className="mb-0 fw-light text-secondary">{movie.popularity}</h2>
-                <h3>{movie.title}</h3>
+                {/*<h2 className="mb-0 fw-light text-secondary">{movie.popularity}</h2>*/}
+                <h3 className='line-clamp-1'>{movie.title}</h3>
             </div>
-            <p className="text-light-emphasis text-end"><i className="fas fa-star"></i>({movie.vote_average})</p>
+            <p className="text-light-emphasis text-end"><i className="fas fa-star"></i>({Math.round(movie.vote_average)})</p>
         </div>
     );
 };

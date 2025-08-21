@@ -6,7 +6,7 @@ const Home = ({navLinks, movies}) => {
     return (
         <div className="container-fluid home position-relative d-flex p-0">
             <div className="main-bg position-absolute col-sm-6 z-2"></div>
-            <div className="col-sm-5 flex-grow-1 p-5 d-flex flex-column justify-content-between z-2">
+            <div className="col-sm-5 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-between z-2">
                 <Header navLinks={navLinks} />
                 <div className="home-heading col-sm-9 text-white mt-5">
                     <h2 className="mb-3">Browse Your Favorite <br/>Movies Anywhere</h2>
