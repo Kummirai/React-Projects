@@ -22,7 +22,7 @@ const Home = ({navLinks, movies,movieIndex}) => {
             </div>
             <div className="col-sm-6 overflow-hidden z-0 image-section">
 
-                <img src={movies[movieIndex]?.poster_path === undefined ? "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14100_p_v13_ap.jpg":"https://image.tmdb.org/t/p/w780/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>
+                <img src={movies[movieIndex]?.poster_path === undefined ? "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14100_p_v13_ap.jpg":"https://image.tmdb.org/t/p/original/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>
 
             </div>
         </div>

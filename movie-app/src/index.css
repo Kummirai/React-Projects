@@ -7,6 +7,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+    background-color: rgb(21,21, 21, 1);
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .home{
     height: 100vh;
 }
@@ -19,7 +24,7 @@
 }
 
 .main-card{
-    min-height: 250px;
+    min-height: 280px;
 }
 
 .main-card-image{
@@ -84,3 +89,17 @@
     z-index: 4;
 }
 
+
+.recommendations{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+}
+
+.recommendation-card{
+    height: 350px;
+}
+
+.rating-title p{
+    font-size: 0.85rem;
+}

@@ -1,10 +1,11 @@
 import Home from "./components/Home.jsx";
 import {useEffect, useState} from "react";
+import Recommendations from "./components/Recommendations.jsx";
 
 function App() {
 
 
-    const navLinks = ["Home", "Movies", "TV Shows", "Trending"];
+    const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre"];
 
     const [movies, setMovies] = useState([]);
     const randomIndex = Math.round(Math.random() * movies.length);
@@ -18,7 +19,16 @@ function App() {
 
 
     useEffect(() => {
-        const url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc';
+        // const url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc';
+        // const options = {
+        //     method: 'GET',
+        //     headers: {
+        //         accept: 'application/json',
+        //         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZmQxODhjZWVlZDdlNGNhYjM3OTFlMjlmYmNjOTQyZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.4tJnTFZLNWX2JRK0_eHGYhNBb_P6J1Wpl1JwV8Ht9pc'
+        //     }
+        // };
+
+        const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=15&sort_by=popularity.desc';
         const options = {
             method: 'GET',
             headers: {
@@ -42,12 +52,14 @@ function App() {
                 }
 
                 setMovies(randomMovies);
+                console.log(randomMovies);
             })
             .catch(err => console.error(err));
     }, []);
   return (
     <>
         <Home navLinks={navLinks} movies={movies} movieIndex={movieIndex} />
+        <Recommendations movies={movies} movieIndex={movieIndex} />
     </>
   )
 }
