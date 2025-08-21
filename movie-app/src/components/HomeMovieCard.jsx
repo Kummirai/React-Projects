@@ -4,7 +4,7 @@ const HomeMovieCard = ({movie}) => {
     return (
         <div className="main-card col-sm-4">
             <div className="main-card-image">
-                <img className="img-fluid rounded-1" src="src/assets/images/main-image.webp" alt="main image" />
+                <img className="img-fluid object-fit-cover rounded-3 shadow-lg" src={movie.image} alt="main image" />
             </div>
             <div className="d-flex flex-column text-white mt-3">
                 <h2 className="mb-0 fw-light text-secondary">{movie.genre}</h2>
