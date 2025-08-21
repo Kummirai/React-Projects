@@ -14,8 +14,8 @@ const Home = ({navLinks, movies}) => {
                     <button className="btn btn-danger">Browse Movies</button>
                 </div>
                 <div className="main-movie-card-container row col-11">
-                    {movies.map(movie => (
-                        <HomeMovieCard movie={movie} />
+                    {movies.map((movie, index) => (
+                        index < 3 ? <HomeMovieCard movie={movie} /> : ""
                     ))}
                 </div>
             </div>
