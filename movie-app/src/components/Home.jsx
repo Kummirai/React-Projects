@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from "./Header.jsx";
 
-const Home = () => {
+const Home = ({navLinks}) => {
     return (
-        <div>
-            
-        </div>
+        <>
+        <Header navLinks={navLinks} />
+        </>
     );
 };
 

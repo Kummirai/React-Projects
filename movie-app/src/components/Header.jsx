@@ -1,10 +1,21 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({navLinks}) => {
+
+
+
     return (
-        <div>
-            
-        </div>
+        <>
+            <nav>
+                <ul>
+                    { navLinks.map((link, key) => (
+                        <li key={key}>
+                            <a href="#">{link}</a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </>
     );
 };
 
