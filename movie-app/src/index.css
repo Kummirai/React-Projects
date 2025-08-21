@@ -54,3 +54,32 @@
     text-overflow: ellipsis; /* Add ellipsis for truncated text */
 }
 
+
+
+.image-section {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.image-section img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+}
+
+.main-img{
+    background: linear-gradient(180deg, rgba(21, 21, 21, 0.0) 0%, rgb(1, 9, 6) 100%);
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    z-index: 3;
+}
+
+.short-description{
+    grid-column: 4 / 12;
+    grid-row: 9 / 12;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 4;
+}
+

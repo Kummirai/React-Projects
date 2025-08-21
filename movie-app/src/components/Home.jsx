@@ -14,14 +14,16 @@ const Home = ({navLinks, movies,movieIndex}) => {
                     <p>Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
                     <button className="btn btn-danger">Browse Movies</button>
                 </div>
-                <div className="main-movie-card-container row col-11">
+                <div className="main-movie-card-container row col-sm-12">
                     {movies.map((movie, index) => (
                         index < 3 ? <HomeMovieCard movie={movie} /> : ""
                     ))}
                 </div>
             </div>
-            <div className="col-sm-6 main-img overflow-hidden z-0">
+            <div className="col-sm-6 overflow-hidden z-0 image-section">
+
                 <img src={"https://image.tmdb.org/t/p/w780/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>
+
             </div>
         </div>
     );

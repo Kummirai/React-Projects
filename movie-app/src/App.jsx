@@ -5,7 +5,7 @@ function App() {
 
 
     const navLinks = ["Home", "Movies", "TV Shows", "Trending"];
-    // const movies = [
+    // const backUpMovies = [
     //     {
     //         id: 1,
     //         title: "Jeepers Creepers 2",
@@ -39,6 +39,8 @@ function App() {
         setMovieIndex(randomIndex);
     }, [movies]);
 
+    console.log(movies);
+
     useEffect(() => {
         const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
         const options = {
@@ -51,7 +53,20 @@ function App() {
 
         fetch(url, options)
             .then(res => res.json())
-            .then(json =>  setMovies(json.results))
+            .then(json => {
+
+                const randomMovies = [];
+                const numToSelect = json.results.length;
+
+                for (let i = 0; i < numToSelect; i++) {
+                    const index = Math.floor(Math.random() * json.results.length);
+                    if(!randomMovies.includes(json.results[index])){
+                        randomMovies.push(json.results[index]);
+                    }
+                }
+
+                setMovies(randomMovies);
+            })
             .catch(err => console.error(err));
     }, []);
   return (
