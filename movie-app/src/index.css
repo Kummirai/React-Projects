@@ -8,16 +8,8 @@
 }
 
 
-
 .home{
     height: 100vh;
-}
-
-.main-img{
-    background-image: url("./assets/images/main-image.webp");
-    background-size: cover;
-    background-position: left;
-    background-repeat: no-repeat;
 }
 
 .main-bg{
@@ -25,10 +17,6 @@
 
 }
 
-.main-movie-card-container{
-    position: absolute;
-    bottom: 20px;
-}
 
 .main-card{
     min-height: 250px;
