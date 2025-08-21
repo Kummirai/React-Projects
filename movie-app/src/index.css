@@ -7,16 +7,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 .home{
     height: 100vh;
 }
 
-.main-bg{
-    background: linear-gradient(180deg, rgba(21, 21, 21, 0.99) 0%, rgba(21, 21, 21, 0.99) 100%);
-
+.main-bg {
+    background: rgba(21, 21, 21, 1);
+    height: 100%;
+    z-index: -1;
+    box-shadow: 50px 0 30px 10px rgba(21, 21, 21, 1);
 }
-
 
 .main-card{
     min-height: 250px;
