@@ -3,9 +3,9 @@ import Header from "./Header.jsx";
 
 const Home = ({navLinks}) => {
     return (
-        <>
-        <Header navLinks={navLinks} />
-        </>
+        <div className="container-fluid p-5">
+            <Header navLinks={navLinks} />
+        </div>
     );
 };
 
