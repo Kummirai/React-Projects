@@ -40,6 +40,20 @@ function App() {
         }
     }
 
+    const bgTheme = {
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies[movieIndex]?.poster_path})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top"
+    }
+
+    const movieDetailTheme = {
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top"
+    }
+
     console.log(isMovieDetails);
 
     useEffect(() => {
@@ -86,10 +100,7 @@ function App() {
             .catch(err => console.error(err));
     }, [currentPage]);
   return (
-    <div style={{backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top"}}>
+    <div style={!isMovieDetails ? bgTheme : movieDetailTheme}>
         <Home
             navLinks={navLinks}
             movies={movies}

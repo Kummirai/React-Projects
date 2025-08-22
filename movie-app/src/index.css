@@ -17,10 +17,10 @@ body{
 }
 
 .main-bg {
-    background: rgba(21, 21, 21, 1);
+    /*background: rgba(21, 21, 21, 1);*/
     height: 100%;
     z-index: -1;
-    box-shadow: 50px 0 30px 10px rgba(21, 21, 21, 1);
+    /*box-shadow: 50px 0 30px 10px rgba(21, 21, 21, 1);*/
 }
 
 .main-card{
@@ -68,8 +68,8 @@ body{
 }
 
 .image-section img {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
+    grid-column: 3 / 10;
+    grid-row: 3 / 9;
     object-fit: contain;
 }
 
@@ -135,5 +135,21 @@ body{
 }
 
 .bg-theme{
-    background-color: rgba(21, 21, 21, 1);
+    background: #FFFFFF;
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.0) 0%,
+    rgba(0, 0, 0, 0.98) 40%,
+    rgba(0, 0, 0, 1) 100%);
+}
+
+.home-bg {
+    background: #FFFFFF;
+    background: linear-gradient(0deg,
+    rgba(255, 255, 255, 0.0) 0%,
+    rgba(0, 0, 0, 0.4) 85%,
+    rgba(0, 0, 0, 0.8) 100%);
+}
+
+.font-85{
+    font-size: 0.85rem;
 }

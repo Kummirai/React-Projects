@@ -9,7 +9,7 @@ const Header = ({navLinks, handleTabSelection}) => {
                 <ul className="d-flex align-items-center justify-content-between list-unstyled col-sm-7 mb-0 text-white">
                     { navLinks.map((link, key) => (
                         <li key={key}>
-                            <a onClick={()=>handleTabSelection(link)} className="text-decoration-none text-white-50" href="#">{link}</a>
+                            <a onClick={()=>handleTabSelection(link)} className="text-decoration-none fw-normal text-white display-6 font-85" href="#">{link}</a>
                         </li>
                     ))}
                 </ul>

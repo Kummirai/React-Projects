@@ -9,7 +9,7 @@ const HomeMovieCard = ({movie}) => {
             <div className="d-flex justify-content-between text-white mt-3">
                 <h3 className='line-clamp-1'>{movie.name}</h3>
             </div>
-            <p className="text-danger text-start"><i className="fas fa-star"></i>({movie.vote_average.toFixed(1)})</p>
+            <p className="text-warning text-start"><i className="fas fa-star"></i>({movie.vote_average.toFixed(1)})</p>
         </div>
     );
 };

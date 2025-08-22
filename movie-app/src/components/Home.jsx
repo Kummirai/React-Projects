@@ -3,10 +3,10 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie, handleTabSelection}) => {
+const Home = ({navLinks, movies, isMovieDetails, movie, handleTabSelection}) => {
 
     return (
-        <div className="container-fluid home position-relative d-flex p-0">
+        <div className="container-fluid home  position-relative d-flex p-0">
             {isMovieDetails ?
                 <>
                     <MoviesDetails
@@ -18,7 +18,7 @@ const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie, handleTabSele
 
                 : (
                 <>
-                <div className="main-bg position-absolute col-sm-6 z-2"></div>
+                <div className="main-bg home-bg position-absolute col-sm-12 z-2"></div>
                     <div className="col-sm-6 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-between z-2">
                         <Header
                             navLinks={navLinks}
@@ -35,9 +35,9 @@ const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie, handleTabSele
                             ))}
                         </div>
                 </div>
-                <div className="col-sm-6 overflow-hidden z-0 image-section">
+                <div className="col-sm-5 overflow-hidden z-0 image-section">
 
-                    <img src={movies[movieIndex]?.poster_path === undefined ? "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14100_p_v13_ap.jpg":"https://image.tmdb.org/t/p/original/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>
+                    {/*<img src={movies[movieIndex]?.poster_path === undefined ? "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14100_p_v13_ap.jpg":"https://image.tmdb.org/t/p/original/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>*/}
 
                 </div>
                 </>

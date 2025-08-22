@@ -6,12 +6,7 @@ function MoviesDetails({navLinks,movie,handleTabSelection}) {
     const months =["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
 
     return (
-        <div className="container-fluid d-flex"
-        style={{backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-            backgroundPosition: "top",
-        }}>
+        <div className="container-fluid d-flex">
             <div className="col-sm-8 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-start z-2">
                 <Header
                     navLinks={navLinks}
