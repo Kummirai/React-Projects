@@ -26,6 +26,8 @@ function App() {
         setCurrentPage(prevState => prevState - 1);
     }
 
+    const [isMovieDetails, setIsMovieDetails] = useState(true);
+
 
     useEffect(() => {
         setMovieIndex(randomIndex);
@@ -72,7 +74,13 @@ function App() {
     }, [currentPage]);
   return (
     <>
-        <Home navLinks={navLinks} movies={movies} movieIndex={movieIndex} />
+        <Home
+            navLinks={navLinks}
+            movies={movies}
+            movieIndex={movieIndex}
+            isMovieDetails = {isMovieDetails}
+            setIsMovieDetails = {setIsMovieDetails}
+        />
         <Recommendations
             movies={movies}
             movieIndex={movieIndex}

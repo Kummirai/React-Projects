@@ -2,8 +2,6 @@ import React from 'react';
 
 const Header = ({navLinks}) => {
 
-
-
     return (
         <>
             <nav className="col-sm-12 d-flex justify-content-between align-items-center text-white">
