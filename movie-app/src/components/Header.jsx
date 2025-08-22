@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({navLinks}) => {
+const Header = ({navLinks, handleTabSelection}) => {
 
     return (
         <>
@@ -9,7 +9,7 @@ const Header = ({navLinks}) => {
                 <ul className="d-flex align-items-center justify-content-between list-unstyled col-sm-7 mb-0 text-white">
                     { navLinks.map((link, key) => (
                         <li key={key}>
-                            <a className="text-decoration-none text-white-50" href="#">{link}</a>
+                            <a onClick={()=>handleTabSelection(link)} className="text-decoration-none text-white-50" href="#">{link}</a>
                         </li>
                     ))}
                 </ul>

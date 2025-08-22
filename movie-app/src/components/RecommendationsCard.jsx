@@ -10,7 +10,7 @@ function RecommendationsCard ({movie, handleShowMovieDetails}) {
             backgroundPosition: 'center center',
         }}>
             <div className="p-2 d-flex justify-content-between align-items-start">
-                <div className="d-flex align-items-center flex-column justify-content-between rating-title">
+                <div className="d-flex align-items-center text-end justify-content-end rating-title">
                     <p className="text-white bg-dark rounded-2  fw-light p-1">
                         <i className="fas fa-star mx-1"></i>
                         <span className="mx-1">{movie.vote_average.toFixed(1)}</span>

@@ -2,11 +2,13 @@ import React from 'react';
 import RecommendationsCard from "./RecommendationsCard.jsx";
 import Pagination from "./Pagination.jsx";
 
-function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage, handleShowMovieDetails}) {
+function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage, handleShowMovieDetails, isMovieDetails}) {
+    console.log(isMovieDetails)
+
     return (
-        <div>
+        <div className={isMovieDetails ? "bg-blur" : "bg-theme"}>
             <div className="d-flex flex-column">
-                <h2 className="text-center m-5 text-white">
+                <h2 className={isMovieDetails ? "text-center m-5 text-transparent": "text-center m-5 text-white"}>
                     Recommendations
                 </h2>
                 <div className="recommendations container mb-5">

@@ -11,6 +11,7 @@ function App() {
     const [movie, setMovie] = useState(null);
     const [movies, setMovies] = useState([]);
     const randomIndex = Math.round(Math.random() * movies.length);
+    const [isMovieDetails, setIsMovieDetails] = useState(false);
 
     const [movieIndex, setMovieIndex] = useState(randomIndex);
 
@@ -31,9 +32,15 @@ function App() {
         setMovie(movie);
     }
 
-    const [isMovieDetails, setIsMovieDetails] = useState(false);
 
+    const handleTabSelection = (tab) => {
+        console.log(tab)
+        if (tab === "Home") {
+            setIsMovieDetails(false)
+        }
+    }
 
+    console.log(isMovieDetails);
 
     useEffect(() => {
         setMovieIndex(randomIndex);
@@ -79,7 +86,10 @@ function App() {
             .catch(err => console.error(err));
     }, [currentPage]);
   return (
-    <>
+    <div style={{backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top"}}>
         <Home
             navLinks={navLinks}
             movies={movies}
@@ -87,6 +97,7 @@ function App() {
             isMovieDetails = {isMovieDetails}
             setIsMovieDetails = {setIsMovieDetails}
             movie={movie}
+            handleTabSelection={handleTabSelection}
         />
         <Recommendations
             movies={movies}
@@ -97,8 +108,9 @@ function App() {
             handlePageChange={handlePageChange}
             currentPage={currentPage}
             handleShowMovieDetails={handleShowMovieDetails}
+            isMovieDetails={isMovieDetails}
         />
-    </>
+    </div>
   )
 }
 

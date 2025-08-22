@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie}) => {
+const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie, handleTabSelection}) => {
 
     return (
         <div className="container-fluid home position-relative d-flex p-0">
@@ -12,6 +12,7 @@ const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie}) => {
                     <MoviesDetails
                         navLinks={navLinks}
                         movie={movie}
+                        handleTabSelection={handleTabSelection}
                     />
                 </>
 
@@ -19,7 +20,10 @@ const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie}) => {
                 <>
                 <div className="main-bg position-absolute col-sm-6 z-2"></div>
                     <div className="col-sm-6 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-between z-2">
-                        <Header navLinks={navLinks} />
+                        <Header
+                            navLinks={navLinks}
+                            handleTabSelection={handleTabSelection}
+                        />
                         <div className="home-heading col-sm-9 text-white mt-5">
                             <h2 className="mb-3">Browse Your Favorite <br/>Movies Anywhere</h2>
                             <p>Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>

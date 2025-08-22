@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -9,7 +9,7 @@
 
 body{
     background-color: rgb(21,21, 21, 1);
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .home{
@@ -94,6 +94,7 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.2rem;
+
 }
 
 .recommendation-card{
@@ -104,3 +105,35 @@ body{
     font-size: 0.85rem;
 }
 
+/*.blur-bg{*/
+/*    background-color: rgba(0, 0, 0, 0.3); !* Semi-transparent background *!*/
+/*    backdrop-filter: blur(5px); !* Apply blur effect to the background *!*/
+/*    -webkit-backdrop-filter: blur(5px); !* For Webkit browsers *!*/
+/*    padding: 20px;*/
+/*    border-radius: 8px;*/
+/*}*/
+
+.blur-bg{
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    background-color: rgba(0, 0, 0, 0.11);
+    border-radius: 12px;
+    padding: 12px;
+    /*border: 1px solid rgba(209, 213, 219, 0.3);*/
+}
+
+.bg-blur {
+    background: #FFFFFF;
+    background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.0) 0%,
+                rgba(0, 0, 0, 0.9) 40%,
+                rgba(0, 0, 0, 1) 100%);
+}
+
+.text-transparent{
+    color: transparent;
+}
+
+.bg-theme{
+    background-color: rgba(21, 21, 21, 1);
+}
