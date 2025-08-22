@@ -7,7 +7,7 @@ const HomeMovieCard = ({movie}) => {
                 <img className="img-fluid object-fit-cover rounded-3 shadow-lg" src={"https://image.tmdb.org/t/p/w342/" + movie.poster_path} alt="main image" />
             </div>
             <div className="d-flex justify-content-between text-white mt-3">
-                <h3 className='line-clamp-1'>{movie.title}</h3>
+                <h3 className='line-clamp-1'>{movie.name}</h3>
             </div>
             <p className="text-danger text-start"><i className="fas fa-star"></i>({movie.vote_average.toFixed(1)})</p>
         </div>

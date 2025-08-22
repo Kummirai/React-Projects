@@ -2,7 +2,7 @@ import React from 'react';
 import RecommendationsCard from "./RecommendationsCard.jsx";
 import Pagination from "./Pagination.jsx";
 
-function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange}) {
+function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage}) {
     return (
         <div>
             <div className="d-flex flex-column">
@@ -21,6 +21,7 @@ function Recommendations({movies, pages, handleNextPage, handlePreviousPage, han
                     handlePageChange={handlePageChange}
                     handleNextPage={handleNextPage}
                     handlePreviousPage={handlePreviousPage}
+                    currentPage={currentPage}
                 />
             </div>
         </div>
