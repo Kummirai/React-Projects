@@ -1,13 +1,9 @@
 import React from 'react';
 
-function RecommendationsCard ({movie}) {
-
-    const handleClick = (movie) => {
-        console.log(movie)
-    }
+function RecommendationsCard ({movie, handleShowMovieDetails}) {
 
     return (
-        <div onClick={()=>handleClick(movie)} className='d-flex flex-column justify-content-between recommendation-card rounded-3'
+        <div onClick={()=>handleShowMovieDetails(movie)} className='d-flex flex-column justify-content-between recommendation-card rounded-3'
         style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/w342/" + movie.poster_path})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

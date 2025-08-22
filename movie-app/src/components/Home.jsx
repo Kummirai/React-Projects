@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, movies,movieIndex, isMovieDetails, setIsMovieDetails}) => {
+const Home = ({navLinks, movies,movieIndex, isMovieDetails, movie}) => {
 
     return (
         <div className="container-fluid home position-relative d-flex p-0">
@@ -11,8 +11,7 @@ const Home = ({navLinks, movies,movieIndex, isMovieDetails, setIsMovieDetails}) 
                 <>
                     <MoviesDetails
                         navLinks={navLinks}
-                        movies={movies}
-                        movieIndex = {movieIndex}
+                        movie={movie}
                     />
                 </>
 

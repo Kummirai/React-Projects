@@ -2,7 +2,7 @@ import React from 'react';
 import RecommendationsCard from "./RecommendationsCard.jsx";
 import Pagination from "./Pagination.jsx";
 
-function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage}) {
+function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage, handleShowMovieDetails}) {
     return (
         <div>
             <div className="d-flex flex-column">
@@ -12,7 +12,10 @@ function Recommendations({movies, pages, handleNextPage, handlePreviousPage, han
                 <div className="recommendations container mb-5">
                     { movies.map((movie, index) => (
                         index < 10 ?
-                        <RecommendationsCard key={movie.id} movie={movie} />
+                        <RecommendationsCard
+                            key={movie.id} movie={movie}
+                            handleShowMovieDetails={handleShowMovieDetails}
+                        />
                             : ""
                     ))}
                 </div>

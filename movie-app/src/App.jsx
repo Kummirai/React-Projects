@@ -8,7 +8,7 @@ function App() {
     const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre"];
 
     const [currentPage, setCurrentPage] = useState(1);
-
+    const [movie, setMovie] = useState(null);
     const [movies, setMovies] = useState([]);
     const randomIndex = Math.round(Math.random() * movies.length);
 
@@ -26,7 +26,13 @@ function App() {
         setCurrentPage(prevState => prevState - 1);
     }
 
-    const [isMovieDetails, setIsMovieDetails] = useState(true);
+    const handleShowMovieDetails = (movie) => {
+        setIsMovieDetails(true)
+        setMovie(movie);
+    }
+
+    const [isMovieDetails, setIsMovieDetails] = useState(false);
+
 
 
     useEffect(() => {
@@ -80,6 +86,7 @@ function App() {
             movieIndex={movieIndex}
             isMovieDetails = {isMovieDetails}
             setIsMovieDetails = {setIsMovieDetails}
+            movie={movie}
         />
         <Recommendations
             movies={movies}
@@ -89,6 +96,7 @@ function App() {
             handlePreviousPage={handlePreviousPage}
             handlePageChange={handlePageChange}
             currentPage={currentPage}
+            handleShowMovieDetails={handleShowMovieDetails}
         />
     </>
   )
