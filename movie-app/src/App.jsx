@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import Recommendations from "./components/home/Recommendations.jsx";
 import Upcoming from "./components/home/Upcoming.jsx";
 import Footer from "./components/home/Footer.jsx";
+import Movies from "./components/movies/Movies.jsx";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [movieIndex, setMovieIndex] = useState(randomIndex);
     const [backgroundIndex, setBackgroundIndex] = useState(null);
+    const [tabs, setTabs] = useState("Home");
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -44,8 +46,13 @@ function App() {
         setMovie(movie);
     }
 
-    const handleTabSelection = (tab) => {
+    const selectTab = (tab) => {
         console.log(tab)
+        setTabs(tab)
+    }
+
+    const handleTabSelection = (tab) => {
+        selectTab(tab)
         if (tab === "Home") {
             setIsMovieDetails(false)
         }
@@ -165,46 +172,55 @@ function App() {
 
   return (
       <>
-        <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
-            <Home
-                navLinks={navLinks}
-                topRatedMovies={movies}
-                movieIndex={movieIndex}
-                isMovieDetails = {isMovieDetails}
-                setIsMovieDetails = {setIsMovieDetails}
-                movie={movie}
-                handleTabSelection={handleTabSelection}
-            />
-            <Recommendations
-                heading={navLinks[2]}
-                movies={movies}
-                movieIndex={movieIndex}
-                pages={pages}
-                handleNextPage={handleNextPage}
-                handlePreviousPage={handlePreviousPage}
-                handlePageChange={handlePageChange}
-                currentPage={currentPage}
-                handleShowMovieDetails={handleShowMovieDetails}
-                isMovieDetails={isMovieDetails}
-        />
-        </div>
-        <div className='bg-theme-1'>
-          <Upcoming
-              handleShowMovieDetails={handleShowMovieDetails}
-              movies={topRatedMovies}
-              heading={navLinks[5]}
-          />
-          <Upcoming
-              handleShowMovieDetails={handleShowMovieDetails}
-              movies={upComing}
-              heading={navLinks[1]}
-          />
-        </div>
-          <Footer
-          navLinks={navLinks}
-          handleTabSelection={handleTabSelection}
-          socials={socials}
-          />
+          { tabs === "Home" ?
+              <>
+                <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
+                    <Home
+                        navLinks={navLinks}
+                        topRatedMovies={movies}
+                        movieIndex={movieIndex}
+                        isMovieDetails = {isMovieDetails}
+                        setIsMovieDetails = {setIsMovieDetails}
+                        movie={movie}
+                        handleTabSelection={handleTabSelection}
+                        tabs={tabs}
+                    />
+                    <Recommendations
+                        heading={navLinks[2]}
+                        movies={movies}
+                        movieIndex={movieIndex}
+                        pages={pages}
+                        handleNextPage={handleNextPage}
+                        handlePreviousPage={handlePreviousPage}
+                        handlePageChange={handlePageChange}
+                        currentPage={currentPage}
+                        handleShowMovieDetails={handleShowMovieDetails}
+                        isMovieDetails={isMovieDetails}
+                />
+                </div>
+                <div className='bg-theme-1'>
+                  <Upcoming
+                      handleShowMovieDetails={handleShowMovieDetails}
+                      movies={topRatedMovies}
+                      heading={navLinks[5]}
+                  />
+                  <Upcoming
+                      handleShowMovieDetails={handleShowMovieDetails}
+                      movies={upComing}
+                      heading={navLinks[1]}
+                  />
+                </div>
+                  <Footer
+                  navLinks={navLinks}
+                  handleTabSelection={handleTabSelection}
+                  socials={socials}
+                  />
+              </> :
+              <Movies navLinks={navLinks}
+                      handleTabSelection={handleTabSelection}
+                      tabs={tabs}
+              />
+          }
       </>
   )
 }

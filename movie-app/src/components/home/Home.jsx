@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, isMovieDetails, movie, handleTabSelection}) => {
+const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
 
     console.log(movie);
     return (
@@ -24,6 +24,7 @@ const Home = ({navLinks, isMovieDetails, movie, handleTabSelection}) => {
                         <Header
                             navLinks={navLinks}
                             handleTabSelection={handleTabSelection}
+                            tabs={tabs}
                         />
                         <div className="home-heading text-white">
                             <h2 className="display-4 gradient-text fw-bolder">Browse Your Favorite <br/>Movies Anywhere</h2>
