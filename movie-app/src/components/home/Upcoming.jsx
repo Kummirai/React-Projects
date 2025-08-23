@@ -1,6 +1,6 @@
 import React from 'react';
 import UpcomingCard from "./UpcomingCard.jsx";
-import More from "../components/More";
+import More from "./More.jsx";
 
 function Upcoming({movies, heading}) {
     return (

@@ -1,14 +1,22 @@
-import Home from "./components/Home.jsx";
+import Home from "./components/home/Home.jsx";
 import {useEffect, useState} from "react";
-import Recommendations from "./components/Recommendations.jsx";
-import Upcoming from "./components/Upcoming.jsx";
-import Footer from "./components/Footer.jsx";
+import Recommendations from "./components/home/Recommendations.jsx";
+import Upcoming from "./components/home/Upcoming.jsx";
+import Footer from "./components/home/Footer.jsx";
 
 function App() {
 
     const pages = [1, 2, 3, 4];
     const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre", "Top Rated"];
     const socials = ["fab fa-github", "fab fa-instagram", "fab fa-linkedin", "fab fa-twitter", "fab fa-facebook" ];
+    const backgrounds = [
+        "https://image.tmdb.org/t/p/original//1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+        "https://image.tmdb.org/t/p/original//6vFL8S6Cci8s7SHWXz60xOisGBC.jpg",
+        "https://image.tmdb.org/t/p/original//7jEVqXC14bhfAzSPgr896dMdDv6.jpg",
+        "https://image.tmdb.org/t/p/original//5E1BhkCgjLBlqx557Z5yzcN0i88.jpg",
+        "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
+    ]
+
     const [currentPage, setCurrentPage] = useState(1);
     const [movie, setMovie] = useState(null);
     const [movies, setMovies] = useState([]);
@@ -17,7 +25,7 @@ function App() {
     const [upComing, setUpComing] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [movieIndex, setMovieIndex] = useState(randomIndex);
-    const backgrounds = ["https://image.tmdb.org/t/p/original//1XS1oqL89opfnbLl8WnZY1O1uJx.jpg", "https://image.tmdb.org/t/p/original//6vFL8S6Cci8s7SHWXz60xOisGBC.jpg", "https://image.tmdb.org/t/p/original//7jEVqXC14bhfAzSPgr896dMdDv6.jpg","https://image.tmdb.org/t/p/original//5E1BhkCgjLBlqx557Z5yzcN0i88.jpg", "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"]
+    const [backgroundIndex, setBackgroundIndex] = useState(null);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -43,8 +51,15 @@ function App() {
         }
     }
 
+    useEffect(() => {
+        const genRandom = Math.round(Math.random() * (backgrounds.length - 1))
+        console.log(genRandom)
+        setBackgroundIndex(genRandom)
+
+    }, []);
+
     const bgTheme = {
-        backgroundImage: `url(${backgrounds[Math.round(Math.random() * backgrounds.length - 1)]})`,
+        backgroundImage: `url(${backgrounds[backgroundIndex]})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top"
