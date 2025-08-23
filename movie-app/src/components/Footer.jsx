@@ -16,9 +16,9 @@ function Footer({navLinks, handleTabSelection, socials}) {
                         ))}
                     </ul>
                 </nav>
-                <nav className="col-sm-2 d-flex align-items-start justify-content-evenly text-white-50">
+                <nav className="col-sm-2 d-flex align-items-start justify-content-evenly ">
                     {socials.map((social, index) => (
-                        <i className={social} key={index}></i>
+                        <a className="text-decoration-none text-white-50" href="#"><i className={social} key={index}></i></a>
                     ))}
                 </nav>
             </div>
