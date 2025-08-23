@@ -2,11 +2,13 @@ import Home from "./components/Home.jsx";
 import {useEffect, useState} from "react";
 import Recommendations from "./components/Recommendations.jsx";
 import Upcoming from "./components/Upcoming.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
     const pages = [1, 2, 3, 4];
     const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre", "Top Rated"];
+    const socials = ["fab fa-github", "fab fa-instagram", "fab fa-linkedin", "fab fa-twitter", "fab fa-facebook" ];
     const [currentPage, setCurrentPage] = useState(1);
     const [movie, setMovie] = useState(null);
     const [movies, setMovies] = useState([]);
@@ -182,6 +184,11 @@ function App() {
               heading={navLinks[1]}
           />
         </div>
+          <Footer
+          navLinks={navLinks}
+          handleTabSelection={handleTabSelection}
+          socials={socials}
+          />
       </>
   )
 }
