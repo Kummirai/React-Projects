@@ -177,3 +177,7 @@ body{
 footer{
     height: 12rem;
 }
+
+footer p{
+    font-size: 0.85rem;
+}

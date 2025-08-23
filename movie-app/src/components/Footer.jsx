@@ -24,8 +24,8 @@ function Footer({navLinks, handleTabSelection, socials}) {
             </div>
             <div className="container d-flex align-items-center justify-content-between">
                 <div className="col-sm-4 text-secondary d-flex align-items-center justify-content-between text-center p-2 ">
-                    <p className="mb-0 p-0 fs-6">movieap@movies.com</p>
-                    <p className="mb-0 fs-6">+44 235 454 369</p>
+                    <p className="mb-0 ">movieap@movies.com</p>
+                    <p className="mb-0 ">+44 235 454 369</p>
                 </div>
                 <div className=" text-secondary">
                     <p>Movie app &copy; 2025</p>
