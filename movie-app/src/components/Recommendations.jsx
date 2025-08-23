@@ -6,7 +6,7 @@ function Recommendations({movies, pages, handleNextPage, handlePreviousPage, han
     console.log(isMovieDetails)
 
     return (
-        <div className={isMovieDetails ? "bg-blur bg-theme" : "bg-theme"}>
+        <div className={isMovieDetails ? "bg-blur bg-theme border-bottom" : "bg-theme"}>
             <div className="d-flex flex-column">
                 <h2 className={isMovieDetails ? "text-center m-5 text-transparent": "text-center m-5 text-white"}>
                     Recommendations

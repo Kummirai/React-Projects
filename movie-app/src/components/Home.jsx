@@ -24,8 +24,8 @@ const Home = ({navLinks, movies, isMovieDetails, movie, handleTabSelection}) => 
                             navLinks={navLinks}
                             handleTabSelection={handleTabSelection}
                         />
-                        <div className="home-heading col-sm-9 text-white mt-5">
-                            <h2 className="mb-3">Browse Your Favorite <br/>Movies Anywhere</h2>
+                        <div className="home-heading col-sm-9 text-white mt-4">
+                            <h2 className="mb-3 display-5 fw-bold">Browse Your Favorite <br/>Movies Anywhere</h2>
                             <p>Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
                             <button className="btn btn-danger">Browse Movies</button>
                         </div>

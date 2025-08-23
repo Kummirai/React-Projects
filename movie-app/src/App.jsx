@@ -100,7 +100,7 @@ function App() {
             .catch(err => console.error(err));
     }, [currentPage]);
   return (
-    <div style={!isMovieDetails ? bgTheme : movieDetailTheme}>
+    <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
         <Home
             navLinks={navLinks}
             movies={movies}
