@@ -1,15 +1,14 @@
 import React from 'react';
 import RecommendationsCard from "./RecommendationsCard.jsx";
-import Pagination from "./Pagination.jsx";
 
-function Recommendations({movies, pages, handleNextPage, handlePreviousPage, handlePageChange, currentPage, handleShowMovieDetails, isMovieDetails}) {
+function Recommendations({movies,handleShowMovieDetails, isMovieDetails}) {
     console.log(isMovieDetails)
 
     return (
-        <div className={isMovieDetails ? "bg-blur bg-theme border-bottom" : "bg-theme"}>
+        <div className={isMovieDetails ? "bg-blur bg-theme" : "bg-theme"}>
             <div className="d-flex flex-column">
-                <h2 className={isMovieDetails ? "text-center m-5 text-transparent": "text-center m-5 text-white"}>
-                    Recommendations
+                <h2 className={isMovieDetails ? "m-5 text-transparent": "display-6 fs-6 pb-2 text-start m-5 text-white border-bottom"}>
+                    TV Shows
                 </h2>
                 <div className="recommendations container mb-5">
                     { movies.map((movie, index) => (
@@ -21,13 +20,6 @@ function Recommendations({movies, pages, handleNextPage, handlePreviousPage, han
                             : ""
                     ))}
                 </div>
-                {/*<Pagination*/}
-                {/*    pages={pages}*/}
-                {/*    handlePageChange={handlePageChange}*/}
-                {/*    handleNextPage={handleNextPage}*/}
-                {/*    handlePreviousPage={handlePreviousPage}*/}
-                {/*    currentPage={currentPage}*/}
-                {/*/>*/}
             </div>
         </div>
     );

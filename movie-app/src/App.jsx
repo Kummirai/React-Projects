@@ -114,7 +114,7 @@ function App() {
     }, [currentPage]);
   return (
       <>
-        <div className="d-flex flex-column border-bottom bottom-50" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
+        <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
             <Home
                 navLinks={navLinks}
                 movies={movies}
