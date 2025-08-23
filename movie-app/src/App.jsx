@@ -219,6 +219,7 @@ function App() {
               <Movies navLinks={navLinks}
                       handleTabSelection={handleTabSelection}
                       tabs={tabs}
+                      movies={upComing}
               />
           }
       </>

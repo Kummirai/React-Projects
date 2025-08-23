@@ -213,3 +213,8 @@ footer p{
     font-size: 0.9rem;
 }
 
+/*Movie Page Styles */
+.movie-page-height{
+    height: 100vh;
+}
+
