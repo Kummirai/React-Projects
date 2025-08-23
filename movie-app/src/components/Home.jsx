@@ -3,8 +3,9 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, topRatedMovies, isMovieDetails, movie, handleTabSelection}) => {
+const Home = ({navLinks, isMovieDetails, movie, handleTabSelection}) => {
 
+    console.log(movie);
     return (
         <div className="container-fluid home  position-relative d-flex p-0">
             {isMovieDetails ?
