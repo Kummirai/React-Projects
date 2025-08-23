@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import Header from "../home/Header.jsx";
+import Upcoming from "../home/Upcoming.jsx";
 
-function Movies({navLinks, handleTabSelection, tabs, movies }) {
+function Movies({navLinks, handleTabSelection, tabs, movies, heading }) {
 
 
     const [movie, setMovie] = React.useState([]);
@@ -12,13 +13,17 @@ function Movies({navLinks, handleTabSelection, tabs, movies }) {
     }, [])
 
     return (
-        <div className="home-bg d-flex flex-column position-absolute col-sm-12 z-2 movie-page-height"
+        <>
+        <div className="home-bg d-flex align-items-start flex-column justify-content-between position-relative col-sm-12 z-1 movie-page-height"
         style={{
             backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "top center"
         }}>
+            <div className="movie-theme-left position-absolute w-100 h-25 z-0"></div>
+            <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
+            <div className="movie-theme position-absolute w-100 h-50 z-0"></div>
             <div className="col-sm-7 flex-grow-1 p-5 pb-2 z-2">
                 <Header
                     navLinks={navLinks}
@@ -26,10 +31,19 @@ function Movies({navLinks, handleTabSelection, tabs, movies }) {
                     tabs={tabs}
                 />
             </div>
-            <div className="container h-100 flex-grow-1">
-                <h1>{movie.title}</h1>
+            <div className="p-5 container z-3 w-50 mx-0">
+                <div className=" text-white">
+                    <h2 className="display-1 fw-bold gradient-text">{movie?.title}</h2>
+                    <div className="text-white w-50 d-flex align-items-center justify-content-between ">
+                        <p className="text-white "><i className="fas fa-star text-warning"></i><span className="mx-2">{movie?.vote_average}</span><span className="mx-2">|</span><span>{movie?.vote_count} votes</span></p>
+                        <p className="text-white "><i className='fa-solid fa-circle text-white'></i></p>
+                        <p className="">{movie?.release_date}</p>
+                    </div>
+                    <p className="gradient-text">{movie?.overview}</p>
+                </div>
             </div>
         </div>
+        </>
     );
 }
 

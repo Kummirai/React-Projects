@@ -63,7 +63,7 @@ function App() {
         console.log(genRandom)
         setBackgroundIndex(genRandom)
 
-    }, []);
+    }, [tabs]);
 
     const bgTheme = {
         backgroundImage: `url(${backgrounds[backgroundIndex]})`,
@@ -220,6 +220,7 @@ function App() {
                       handleTabSelection={handleTabSelection}
                       tabs={tabs}
                       movies={upComing}
+                      heading="Movies"
               />
           }
       </>

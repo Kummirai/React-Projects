@@ -28,8 +28,8 @@ const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
                         />
                         <div className="home-heading text-white">
                             <h2 className="display-4 gradient-text fw-bolder">Browse Your Favorite <br/>Movies Anywhere</h2>
-                            <p className="mt-4 mb-5 ">Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
-                            <button className="btn btn-danger">Browse Movies</button>
+                            <p className="mt-4 mb-5 gradient-text ">Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
+                            <button className="btn btn-danger gradient-text">Browse Movies</button>
                         </div>
                         {/*<div className="main-movie-card-container row col-sm-12">*/}
                         {/*    {topRatedMovies.map((movie, index) => (*/}
