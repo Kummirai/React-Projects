@@ -1,6 +1,7 @@
 import Home from "./components/Home.jsx";
 import {useEffect, useState} from "react";
 import Recommendations from "./components/Recommendations.jsx";
+import Upcoming from "./components/Upcoming.jsx";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     const [movies, setMovies] = useState([]);
     const randomIndex = Math.round(Math.random() * movies.length);
     const [isMovieDetails, setIsMovieDetails] = useState(false);
+    const [upComing, setUpComing] = useState([]);
 
     const [movieIndex, setMovieIndex] = useState(randomIndex);
 
@@ -62,6 +64,26 @@ function App() {
 
 
     useEffect(() => {
+        const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=${currentPage }&sort_by=popularity.desc`;
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZmQxODhjZWVlZDdlNGNhYjM3OTFlMjlmYmNjOTQyZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.4tJnTFZLNWX2JRK0_eHGYhNBb_P6J1Wpl1JwV8Ht9pc'
+            }
+        };
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json.results)
+                setUpComing(json.results)
+            })
+            .catch(err => console.error(err));
+    }, []);
+
+
+    useEffect(() => {
         const url = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${currentPage}&sort_by=popularity.desc`;
         const options = {
             method: 'GET',
@@ -70,15 +92,7 @@ function App() {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZmQxODhjZWVlZDdlNGNhYjM3OTFlMjlmYmNjOTQyZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.4tJnTFZLNWX2JRK0_eHGYhNBb_P6J1Wpl1JwV8Ht9pc'
             }
         };
-        console.log(currentPage)
-        // const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=${currentPage }&sort_by=popularity.desc`;
-        // const options = {
-        //     method: 'GET',
-        //     headers: {
-        //         accept: 'application/json',
-        //         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZmQxODhjZWVlZDdlNGNhYjM3OTFlMjlmYmNjOTQyZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.4tJnTFZLNWX2JRK0_eHGYhNBb_P6J1Wpl1JwV8Ht9pc'
-        //     }
-        // };
+
 
         fetch(url, options)
             .then(res => res.json())
@@ -95,33 +109,38 @@ function App() {
                 }
 
                 setMovies(randomMovies);
-                console.log(randomMovies);
             })
             .catch(err => console.error(err));
     }, [currentPage]);
   return (
-    <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
-        <Home
-            navLinks={navLinks}
-            movies={movies}
-            movieIndex={movieIndex}
-            isMovieDetails = {isMovieDetails}
-            setIsMovieDetails = {setIsMovieDetails}
-            movie={movie}
-            handleTabSelection={handleTabSelection}
+      <>
+        <div className="d-flex flex-column border-bottom bottom-50" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
+            <Home
+                navLinks={navLinks}
+                movies={movies}
+                movieIndex={movieIndex}
+                isMovieDetails = {isMovieDetails}
+                setIsMovieDetails = {setIsMovieDetails}
+                movie={movie}
+                handleTabSelection={handleTabSelection}
+            />
+            <Recommendations
+                movies={movies}
+                movieIndex={movieIndex}
+                pages={pages}
+                handleNextPage={handleNextPage}
+                handlePreviousPage={handlePreviousPage}
+                handlePageChange={handlePageChange}
+                currentPage={currentPage}
+                handleShowMovieDetails={handleShowMovieDetails}
+                isMovieDetails={isMovieDetails}
         />
-        <Recommendations
-            movies={movies}
-            movieIndex={movieIndex}
-            pages={pages}
-            handleNextPage={handleNextPage}
-            handlePreviousPage={handlePreviousPage}
-            handlePageChange={handlePageChange}
-            currentPage={currentPage}
+        </div>
+        <Upcoming
             handleShowMovieDetails={handleShowMovieDetails}
-            isMovieDetails={isMovieDetails}
+            movies={upComing}
         />
-    </div>
+      </>
   )
 }
 

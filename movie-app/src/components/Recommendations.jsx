@@ -21,13 +21,13 @@ function Recommendations({movies, pages, handleNextPage, handlePreviousPage, han
                             : ""
                     ))}
                 </div>
-                <Pagination
-                    pages={pages}
-                    handlePageChange={handlePageChange}
-                    handleNextPage={handleNextPage}
-                    handlePreviousPage={handlePreviousPage}
-                    currentPage={currentPage}
-                />
+                {/*<Pagination*/}
+                {/*    pages={pages}*/}
+                {/*    handlePageChange={handlePageChange}*/}
+                {/*    handleNextPage={handleNextPage}*/}
+                {/*    handlePreviousPage={handlePreviousPage}*/}
+                {/*    currentPage={currentPage}*/}
+                {/*/>*/}
             </div>
         </div>
     );
