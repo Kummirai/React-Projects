@@ -3,7 +3,7 @@ import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 
-const Home = ({navLinks, movies, isMovieDetails, movie, handleTabSelection}) => {
+const Home = ({navLinks, topRatedMovies, isMovieDetails, movie, handleTabSelection}) => {
 
     return (
         <div className="container-fluid home  position-relative d-flex p-0">
@@ -30,7 +30,7 @@ const Home = ({navLinks, movies, isMovieDetails, movie, handleTabSelection}) => 
                             <button className="btn btn-danger">Browse Movies</button>
                         </div>
                         <div className="main-movie-card-container row col-sm-12">
-                            {movies.map((movie, index) => (
+                            {topRatedMovies.map((movie, index) => (
                                 index < 3 ? <HomeMovieCard movie={movie} /> : ""
                             ))}
                         </div>

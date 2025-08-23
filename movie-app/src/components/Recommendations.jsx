@@ -1,14 +1,15 @@
 import React from 'react';
 import RecommendationsCard from "./RecommendationsCard.jsx";
+import More from "./More.jsx";
 
-function Recommendations({movies,handleShowMovieDetails, isMovieDetails}) {
+function Recommendations({movies,handleShowMovieDetails, isMovieDetails, heading}) {
     console.log(isMovieDetails)
 
     return (
         <div className={isMovieDetails ? "bg-blur bg-theme" : "bg-theme"}>
             <div className="d-flex flex-column">
                 <h2 className={isMovieDetails ? "m-5 text-transparent": "display-6 fs-6 pb-2 text-start m-5 text-white border-bottom "}>
-                    TV Shows
+                    {heading}
                 </h2>
                 <div className="recommendations container mb-5">
                     { movies.map((movie, index) => (
@@ -20,6 +21,7 @@ function Recommendations({movies,handleShowMovieDetails, isMovieDetails}) {
                             : ""
                     ))}
                 </div>
+                <More heading={heading} />
             </div>
         </div>
     );
