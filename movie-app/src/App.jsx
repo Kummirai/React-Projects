@@ -76,11 +76,20 @@ function App() {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                console.log(json.results)
-                setUpComing(json.results)
+                const randomShows = [];
+                const numToSelect = json.results.length;
+
+                for (let i = 0; i < numToSelect; i++) {
+                    const index = Math.floor(Math.random() * json.results.length);
+                    if(!randomShows.includes(json.results[index])){
+                        randomShows.push(json.results[index]);
+                    }
+                }
+
+                setUpComing(randomShows);
             })
             .catch(err => console.error(err));
-    }, []);
+    }, [currentPage]);
 
 
     useEffect(() => {
