@@ -17,6 +17,7 @@ function App() {
     const [upComing, setUpComing] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [movieIndex, setMovieIndex] = useState(randomIndex);
+    const backgrounds = ["https://image.tmdb.org/t/p/original//1XS1oqL89opfnbLl8WnZY1O1uJx.jpg", "https://image.tmdb.org/t/p/original//6vFL8S6Cci8s7SHWXz60xOisGBC.jpg", "https://image.tmdb.org/t/p/original//7jEVqXC14bhfAzSPgr896dMdDv6.jpg","https://image.tmdb.org/t/p/original//5E1BhkCgjLBlqx557Z5yzcN0i88.jpg", "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"]
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -43,7 +44,7 @@ function App() {
     }
 
     const bgTheme = {
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movies[movieIndex]?.poster_path})`,
+        backgroundImage: `url(${backgrounds[Math.round(Math.random() * backgrounds.length - 1)]})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top"
@@ -152,7 +153,7 @@ function App() {
         <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
             <Home
                 navLinks={navLinks}
-                topRatedMovies={topRatedMovies}
+                topRatedMovies={movies}
                 movieIndex={movieIndex}
                 isMovieDetails = {isMovieDetails}
                 setIsMovieDetails = {setIsMovieDetails}

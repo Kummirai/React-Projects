@@ -5,7 +5,7 @@ function Footer({navLinks, handleTabSelection, socials}) {
         <footer className="container-fluid d-flex align-items-start justify-content-between flex-column p-5 pb-1 d-flex flex-column bg-black">
             <div className="container row">
                 <div className="col-sm-2 text-white">
-                    <h2>Movie App</h2>
+                    <h2 className="gradient-text">Movie App</h2>
                 </div>
                 <nav className="col-sm-8 mx-auto">
                     <ul className="d-flex align-items-center justify-content-center list-unstyled mb-0 text-white-50">

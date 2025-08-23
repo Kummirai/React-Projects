@@ -16,6 +16,20 @@ body{
     height: 100vh;
 }
 
+.home-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+header{
+    grid-column: 1/-1;
+}
+
+.home-heading{
+    grid-column: 1/11;
+    grid-row: 4/11;
+}
+
 .main-bg {
     /*background: rgba(21, 21, 21, 1);*/
     height: 100%;
@@ -181,3 +195,21 @@ footer{
 footer p{
     font-size: 0.85rem;
 }
+
+.gradient-text {
+    background: linear-gradient(90deg, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: normal;
+}
+
+.footer-gradient-text{
+    background: linear-gradient(90deg, #6c757d, #6c757d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
