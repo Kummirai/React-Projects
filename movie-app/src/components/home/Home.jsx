@@ -31,11 +31,6 @@ const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
                             <p className="mt-4 mb-5 gradient-text ">Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
                             <button className="btn btn-danger gradient-text">Browse Movies</button>
                         </div>
-                        {/*<div className="main-movie-card-container row col-sm-12">*/}
-                        {/*    {topRatedMovies.map((movie, index) => (*/}
-                        {/*        index < 3 ? <HomeMovieCard movie={movie} /> : ""*/}
-                        {/*    ))}*/}
-                        {/*</div>*/}
                     </div>
                 <div className="col-sm-5 overflow-hidden z-0 image-section">
 

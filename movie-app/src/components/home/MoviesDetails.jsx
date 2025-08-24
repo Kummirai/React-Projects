@@ -13,14 +13,14 @@ function MoviesDetails({navLinks,movie,handleTabSelection}) {
                     handleTabSelection={handleTabSelection}
                 />
                 <div className="m-auto text-white px-5 py-4 rounded-4 blur-bg">
-                    <h2 className="fw-bold display-2">{movie?.name}</h2>
+                    <h2 className="fw-bold display-2 gradient-text">{movie?.name}</h2>
                     <div className="d-flex justify-content-start align-items-center text-white-50 mb-3">
-                        <p>TMDB rating</p>
+                        <p className="gradient-text">TMDB rating</p>
                         <p className="mx-3"><i className="fas fa-star text-warning"></i><span className="text-white-50 mx-1">{movie?.vote_average.toFixed(1)}</span></p>
                     </div>
                     <p className="text-white">{months[movie?.first_air_date.slice(6, 7)]} * {movie?.first_air_date.slice(0, 4)}</p>
-                    <p className="text-white fw-normal">{movie?.overview}</p>
-                    <button className="btn btn-danger">Save to watchlist</button>
+                    <p className="text-white gradient-text fw-normal">{movie?.overview}</p>
+                    <button className="btn btn-danger gradient-text">Save to watchlist</button>
                 </div>
 
             </div>

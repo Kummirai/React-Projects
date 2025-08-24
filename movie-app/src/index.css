@@ -202,7 +202,7 @@ footer p{
     /*background-clip: text;*/
     /*color: transparent;*/
     /*font-weight: normal;*/
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .footer-gradient-text{
@@ -257,5 +257,9 @@ footer p{
     rgb(0, 0, 0) 100%);
     top: 0;
 }
+
+/*.bx-shadow{*/
+/*    box-shadow: 0 0 4px rgba(51, 51, 51, 0.95);*/
+/*}*/
 
 

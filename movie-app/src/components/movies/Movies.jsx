@@ -1,9 +1,19 @@
 import React, {useEffect} from 'react';
 import Header from "../home/Header.jsx";
 import Upcoming from "../home/Upcoming.jsx";
+import Pagination from "../home/Pagination.jsx";
 
-function Movies({navLinks, handleTabSelection, tabs, movies, heading }) {
-
+function Movies({navLinks,
+                    handleTabSelection,
+                    tabs,
+                    movies,
+                    heading,
+                    handleMoreMovies,
+                    pages, handleNextPage,
+                    handlePreviousPage,
+                    handlePageChange,
+                    currentPage
+}) {
 
     const [movie, setMovie] = React.useState([]);
 
@@ -21,7 +31,7 @@ function Movies({navLinks, handleTabSelection, tabs, movies, heading }) {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "top center"
         }}>
-            <div className="movie-theme-left position-absolute w-100 h-25 z-0"></div>
+
             <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
             <div className="movie-theme position-absolute w-100 h-50 z-0"></div>
             <div className="col-sm-7 flex-grow-1 p-5 pb-2 z-2">
@@ -35,13 +45,32 @@ function Movies({navLinks, handleTabSelection, tabs, movies, heading }) {
                 <div className=" text-white">
                     <h2 className="display-1 fw-bold gradient-text">{movie?.title}</h2>
                     <div className="text-white w-50 d-flex align-items-center justify-content-between ">
-                        <p className="text-white "><i className="fas fa-star text-warning"></i><span className="mx-2">{movie?.vote_average}</span><span className="mx-2">|</span><span>{movie?.vote_count} votes</span></p>
+                        <p className="text-white "><i className="fas fa-star text-warning"></i>
+                            <span className="mx-2">{movie?.vote_average}</span>
+                            <span className="mx-2">|</span>
+                            <span>{movie?.vote_count} votes</span>
+                        </p>
                         <p className="text-white "><i className='fa-solid fa-circle text-white'></i></p>
                         <p className="">{movie?.release_date}</p>
                     </div>
                     <p className="gradient-text">{movie?.overview}</p>
                 </div>
             </div>
+        </div>
+        <div className="position-relative">
+            <div className="movie-theme-top position-absolute w-100 h-25 z-n1"></div>
+            <Upcoming
+                heading={heading}
+                movies={movies}
+                handleMoreMovies={handleMoreMovies}
+            />
+            <Pagination
+                pages={pages}
+                handleNextPage={handleNextPage}
+                handlePreviousPage={handlePreviousPage}
+                handlePageChange={handlePageChange}
+                currentPage={currentPage}
+            />
         </div>
         </>
     );

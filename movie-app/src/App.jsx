@@ -58,12 +58,16 @@ function App() {
         }
     }
 
+    const handleMoreMovies = () => {
+        console.log("you clicked me!")
+    }
+
     useEffect(() => {
         const genRandom = Math.round(Math.random() * (backgrounds.length - 1))
         console.log(genRandom)
         setBackgroundIndex(genRandom)
 
-    }, [tabs]);
+    }, []);
 
     const bgTheme = {
         backgroundImage: `url(${backgrounds[backgroundIndex]})`,
@@ -216,12 +220,25 @@ function App() {
                   socials={socials}
                   />
               </> :
-              <Movies navLinks={navLinks}
+              <>
+                  <Movies navLinks={navLinks}
+                          handleTabSelection={handleTabSelection}
+                          tabs={tabs}
+                          movies={upComing}
+                          heading="Movies"
+                          handleMoreMovies={handleMoreMovies}
+                          pages={pages}
+                          currentPage={currentPage}
+                          handlePageChange={handlePageChange}
+                          handlePreviousPage={handlePreviousPage}
+                          handleNextPage={handleNextPage}
+                  />
+                  <Footer
+                      navLinks={navLinks}
                       handleTabSelection={handleTabSelection}
-                      tabs={tabs}
-                      movies={upComing}
-                      heading="Movies"
-              />
+                      socials={socials}
+                  />
+              </>
           }
       </>
   )
