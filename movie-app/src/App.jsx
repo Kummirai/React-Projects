@@ -76,7 +76,6 @@ function App() {
 
     useEffect(() => {
         const genRandom = Math.round(Math.random() * (backgrounds.length - 1))
-        console.log(genRandom)
         setBackgroundIndex(genRandom)
 
     }, [tabs]);
@@ -149,7 +148,7 @@ function App() {
 
         fetch(url, options)
             .then(res => res.json())
-            .then(json => {console.log(json)
+            .then(json => {
                 const topRated = [];
                 const numToSelect = json.results.length;
 

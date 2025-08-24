@@ -5,7 +5,6 @@ import MoviesDetails from "./MoviesDetails.jsx";
 
 const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
 
-    console.log(movie);
     return (
         <div className="container-fluid home  position-relative d-flex p-0">
             {isMovieDetails ?

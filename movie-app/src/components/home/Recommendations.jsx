@@ -3,7 +3,6 @@ import RecommendationsCard from "./RecommendationsCard.jsx";
 import More from "./More.jsx";
 
 function Recommendations({movies,handleShowMovieDetails, isMovieDetails, heading}) {
-    console.log(isMovieDetails)
 
     return (
         <div className={isMovieDetails ? "bg-blur bg-theme" : "bg-theme"}>
