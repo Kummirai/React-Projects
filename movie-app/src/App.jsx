@@ -57,6 +57,19 @@ function App() {
         }
     }
 
+    const fetchData = ()=>{
+        const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
+            }
+        };
+
+        return {url: url, options: options}
+    }
+
     const handleMoreMovies = () => {
         console.log("you clicked me!")
     }
@@ -87,14 +100,8 @@ function App() {
     }, [movies]);
 
     useEffect(() => {
-        const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=${currentPage }&sort_by=popularity.desc`;
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                authorisation : `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`
-            }
-        };
+
+        const {url, options } = fetchData()
 
         fetch(url, options)
             .then(res => res.json())
@@ -115,15 +122,7 @@ function App() {
     }, [currentPage]);
 
     useEffect(() => {
-        const url = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${currentPage}&sort_by=popularity.desc`;
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                authorisation : `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`
-            }
-        };
-
+        const {url, options } = fetchData()
 
         fetch(url, options)
             .then(res => res.json())
@@ -145,14 +144,8 @@ function App() {
     }, [currentPage]);
 
     useEffect(() => {
-        const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                authorisation : `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`
-                }
-        }
+
+        const {url, options } = fetchData()
 
         fetch(url, options)
             .then(res => res.json())
