@@ -2,7 +2,7 @@ import React from 'react';
 import UpcomingCard from "./UpcomingCard.jsx";
 import More from "./More.jsx";
 
-function Upcoming({movies, heading, handleMoreMovies}) {
+function Upcoming({movies, heading, handleMoreMovies, handleShowMovieDetails}) {
     return (
         <div className="mb-5">
             <div className="d-flex align-items-center justify-content-start  p-5 pb-0">
@@ -14,6 +14,7 @@ function Upcoming({movies, heading, handleMoreMovies}) {
                     <UpcomingCard
                         key = {index}
                         movie={movie}
+                        handleShowMovieDetails={handleShowMovieDetails}
                 /> : " "
                 ))}
             </div>

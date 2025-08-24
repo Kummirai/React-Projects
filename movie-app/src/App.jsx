@@ -43,6 +43,7 @@ function App() {
 
     const handleShowMovieDetails = (movie) => {
         setIsMovieDetails(true)
+        console.log(movie);
         setMovie(movie);
     }
 
@@ -232,6 +233,9 @@ function App() {
                           handlePageChange={handlePageChange}
                           handlePreviousPage={handlePreviousPage}
                           handleNextPage={handleNextPage}
+                          handleShowMovieDetails={handleShowMovieDetails}
+                          movieDesc={movie}
+                          isMovieDetails={isMovieDetails}
                   />
                   <Footer
                       navLinks={navLinks}

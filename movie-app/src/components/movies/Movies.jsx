@@ -12,7 +12,10 @@ function Movies({navLinks,
                     pages, handleNextPage,
                     handlePreviousPage,
                     handlePageChange,
-                    currentPage
+                    currentPage,
+                    handleShowMovieDetails,
+                    movieDesc,
+                    isMovieDetails
 }) {
 
     const [movie, setMovie] = React.useState([]);
@@ -26,7 +29,7 @@ function Movies({navLinks,
         <>
         <div className="home-bg d-flex align-items-start flex-column justify-content-between position-relative col-sm-12 z-1 movie-page-height"
         style={{
-            backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.poster_path})`,
+            backgroundImage: `url("https://image.tmdb.org/t/p/original/${!isMovieDetails ? movie?.poster_path : movieDesc?.poster_path})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "top center"
@@ -41,19 +44,20 @@ function Movies({navLinks,
                     tabs={tabs}
                 />
             </div>
-            <div className="p-5 container z-3 w-50 mx-0">
+            <div className="p-5 container z-3 w-75 mx-0">
                 <div className=" text-white">
-                    <h2 className="display-1 fw-bold gradient-text">{movie?.title}</h2>
-                    <div className="text-white w-50 d-flex align-items-center justify-content-between ">
+                    <h2 className="display-1 fw-bold gradient-text">{!isMovieDetails ? movie?.title: movieDesc?.title}</h2>
+                    <div className="text-white w-50 d-flex align-items-center justify-content-start ">
                         <p className="text-white "><i className="fas fa-star text-warning"></i>
-                            <span className="mx-2">{movie?.vote_average}</span>
+                            <span className="mx-2">{!isMovieDetails ? movie?.vote_average : movieDesc?.vote_average}</span>
                             <span className="mx-2">|</span>
-                            <span>{movie?.vote_count} votes</span>
+                            <span>{!isMovieDetails ? movie?.vote_count : movieDesc?.vote_count} votes</span>
                         </p>
-                        <p className="text-white "><i className='fa-solid fa-circle text-white'></i></p>
-                        <p className="">{movie?.release_date}</p>
+                        <p className="text-white gradient-text "><i className='fa-solid fa-circle text-white gradient-text px-2'></i></p>
+                        <p className="">{!isMovieDetails ? movie?.release_date : movieDesc?.release_date}</p>
                     </div>
-                    <p className="gradient-text">{movie?.overview}</p>
+                    <p className="gradient-text py-3 w-50">{!isMovieDetails ? movie?.overview : movieDesc?.overview}</p>
+                    <button className="btn btn-danger gradient-text">Save to watchlist</button>
                 </div>
             </div>
         </div>
@@ -63,6 +67,7 @@ function Movies({navLinks,
                 heading={heading}
                 movies={movies}
                 handleMoreMovies={handleMoreMovies}
+                handleShowMovieDetails={handleShowMovieDetails}
             />
             <Pagination
                 pages={pages}
