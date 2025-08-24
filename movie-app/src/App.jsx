@@ -43,12 +43,10 @@ function App() {
 
     const handleShowMovieDetails = (movie) => {
         setIsMovieDetails(true)
-        console.log(movie);
         setMovie(movie);
     }
 
     const selectTab = (tab) => {
-        console.log(tab)
         setTabs(tab)
     }
 
@@ -68,7 +66,7 @@ function App() {
         console.log(genRandom)
         setBackgroundIndex(genRandom)
 
-    }, []);
+    }, [tabs]);
 
     const bgTheme = {
         backgroundImage: `url(${backgrounds[backgroundIndex]})`,

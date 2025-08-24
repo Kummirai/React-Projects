@@ -49,15 +49,19 @@ function Movies({navLinks,
                     <h2 className="display-1 fw-bold gradient-text">{!isMovieDetails ? movie?.title: movieDesc?.title}</h2>
                     <div className="text-white w-50 d-flex align-items-center justify-content-start ">
                         <p className="text-white "><i className="fas fa-star text-warning"></i>
-                            <span className="mx-2">{!isMovieDetails ? movie?.vote_average : movieDesc?.vote_average}</span>
+                            <span className="mx-2">{!isMovieDetails ? movie?.vote_average : movieDesc?.vote_average?.toFixed(1)}</span>
                             <span className="mx-2">|</span>
                             <span>{!isMovieDetails ? movie?.vote_count : movieDesc?.vote_count} votes</span>
                         </p>
-                        <p className="text-white gradient-text "><i className='fa-solid fa-circle text-white gradient-text px-2'></i></p>
-                        <p className="">{!isMovieDetails ? movie?.release_date : movieDesc?.release_date}</p>
+                        <p className="text-white gradient-text "><i className='fa-solid fa-circle text-warning gradient-text px-2'></i></p>
+                        <p className="fw-bold gradient-text">{!isMovieDetails ? movie?.release_date?.slice(0, 4) : movieDesc?.release_date?.slice(0, 4)}</p>
                     </div>
-                    <p className="gradient-text py-3 w-50">{!isMovieDetails ? movie?.overview : movieDesc?.overview}</p>
-                    <button className="btn btn-danger gradient-text">Save to watchlist</button>
+                    <p className="gradient-text py-3 w-75">{!isMovieDetails ? movie?.overview : movieDesc?.overview}<a href="#" className="text-warning more-details mx-2">More details</a></p>
+                    <div className="w-50 d-flex align-items-center justify-content-start">
+                        <button className="btn btn-warning"><i className="fas fa-save px-2"></i>Save to watchlist</button>
+                        <button className="btn btn-outline-light mx-3"><i className="fas fa-eye mx-2"></i>Similar Movies</button>
+                    </div>
+
                 </div>
             </div>
         </div>
