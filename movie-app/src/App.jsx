@@ -28,6 +28,9 @@ function App() {
     const [movieIndex, setMovieIndex] = useState(randomIndex);
     const [backgroundIndex, setBackgroundIndex] = useState(null);
     const [tabs, setTabs] = useState("Home");
+    const [similarMoviesId, setSimilarMoviesId] = useState(259075);
+    const [isSimilarMovies, setIsSimilarMovies] = useState(false);
+    const [similarMovies, setSimilarMovies] = useState([]);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -52,7 +55,8 @@ function App() {
     }
 
     const handleSimilarMovies = (id) => {
-        console.log(id);
+        setSimilarMoviesId(id)
+        setIsSimilarMovies(true)
     }
 
     const handleTabSelection = (tab) => {
@@ -169,6 +173,24 @@ function App() {
             .catch(err => console.error(err));
     }, [currentPage]);
 
+    useEffect(() => {
+        const url = `https://api.themoviedb.org/3/movie/${similarMoviesId}/similar?language=en-US&page=1`;
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
+            }
+        };
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                setSimilarMovies(json.results)
+            })
+            .catch(err => console.error(err));
+    }, [similarMoviesId]);
+
 
   return (
       <>
@@ -233,6 +255,9 @@ function App() {
                           movieDesc={movie}
                           isMovieDetails={isMovieDetails}
                           handleSimilarMovies={handleSimilarMovies}
+                          isSimilarMovies={isSimilarMovies}
+                          similarMovies={similarMovies}
+
                   />
                   <Footer
                       navLinks={navLinks}

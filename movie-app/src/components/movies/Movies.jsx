@@ -16,7 +16,9 @@ function Movies({navLinks,
                     handleShowMovieDetails,
                     movieDesc,
                     isMovieDetails,
-                    handleSimilarMovies
+                    handleSimilarMovies,
+                    similarMovies,
+                    isSimilarMovies
 }) {
 
     const [movie, setMovie] = React.useState([]);
@@ -45,6 +47,7 @@ function Movies({navLinks,
                     tabs={tabs}
                 />
             </div>
+            {!isSimilarMovies ?
             <div className="p-5 container z-3 w-75 mx-0">
                 <div className=" text-white">
                     <h2 className="display-1 fw-bold gradient-text">{!isMovieDetails ? movie?.title: movieDesc?.title}</h2>
@@ -72,6 +75,7 @@ function Movies({navLinks,
 
                 </div>
             </div>
+                : <></>}
         </div>
         <div className="position-relative">
             <div className="movie-theme-top position-absolute w-100 h-25 z-n1"></div>
