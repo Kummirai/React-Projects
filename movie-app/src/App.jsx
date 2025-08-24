@@ -8,7 +8,7 @@ import Movies from "./components/movies/Movies.jsx";
 function App() {
 
     const pages = [1, 2, 3, 4];
-    const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre", "Top Rated"];
+    const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre", "Top Rated", "Watchlist"];
     const socials = ["fab fa-github", "fab fa-instagram", "fab fa-linkedin", "fab fa-twitter", "fab fa-facebook" ];
     const backgrounds = [
         "https://image.tmdb.org/t/p/original//1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",

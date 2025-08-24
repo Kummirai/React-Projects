@@ -20,7 +20,7 @@ const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
                 : (
                 <>
                 <div className="main-bg home-bg position-absolute col-sm-12 z-2"></div>
-                    <div className="col-sm-6 flex-grow-1 p-5 pb-2 home-grid z-2">
+                    <div className="col-sm-8 flex-grow-1 p-5 pb-2 home-grid z-2">
                         <Header
                             navLinks={navLinks}
                             handleTabSelection={handleTabSelection}
@@ -32,7 +32,7 @@ const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
                             <button className="btn btn-danger gradient-text">Browse Movies</button>
                         </div>
                     </div>
-                <div className="col-sm-5 overflow-hidden z-0 image-section">
+                <div className="col-sm-4 overflow-hidden z-0 image-section">
 
                     {/*<img src={movies[movieIndex]?.poster_path === undefined ? "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14100_p_v13_ap.jpg":"https://image.tmdb.org/t/p/original/" + movies[movieIndex]?.poster_path } className="img-fluid object-fit-cover" alt=""/>*/}
 
