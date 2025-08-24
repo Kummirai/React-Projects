@@ -17,6 +17,7 @@ function App() {
         "https://image.tmdb.org/t/p/original//5E1BhkCgjLBlqx557Z5yzcN0i88.jpg",
         "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
     ]
+    const API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
 
     const [currentPage, setCurrentPage] = useState(1);
     const [movie, setMovie] = useState(null);
@@ -75,7 +76,7 @@ function App() {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
+                Authorization: API_KEY
             }
         };
 
@@ -182,7 +183,7 @@ function App() {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
+                Authorization: API_KEY
             }
         };
 
