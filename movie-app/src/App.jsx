@@ -57,8 +57,8 @@ function App() {
         }
     }
 
-    const fetchData = ()=>{
-        const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+    const fetchData = (currentPage, type) => {
+        const url = `https://api.themoviedb.org/3/discover/${type}?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=popularity.desc`;
         const options = {
             method: 'GET',
             headers: {
@@ -100,7 +100,7 @@ function App() {
 
     useEffect(() => {
 
-        const {url, options } = fetchData()
+        const {url, options} = fetchData(currentPage, "movie")
 
         fetch(url, options)
             .then(res => res.json())
@@ -121,7 +121,7 @@ function App() {
     }, [currentPage]);
 
     useEffect(() => {
-        const {url, options } = fetchData()
+        const {url, options} = fetchData(currentPage, "tv")
 
         fetch(url, options)
             .then(res => res.json())
@@ -144,7 +144,7 @@ function App() {
 
     useEffect(() => {
 
-        const {url, options } = fetchData()
+        const {url, options} = fetchData(currentPage, "movie")
 
         fetch(url, options)
             .then(res => res.json())
