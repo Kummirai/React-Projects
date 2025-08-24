@@ -15,7 +15,8 @@ function Movies({navLinks,
                     currentPage,
                     handleShowMovieDetails,
                     movieDesc,
-                    isMovieDetails
+                    isMovieDetails,
+                    handleSimilarMovies
 }) {
 
     const [movie, setMovie] = React.useState([]);
@@ -59,7 +60,14 @@ function Movies({navLinks,
                     <p className="gradient-text py-3 w-75">{!isMovieDetails ? movie?.overview : movieDesc?.overview}<a href="#" className="text-warning more-details mx-2">More details</a></p>
                     <div className="w-50 d-flex align-items-center justify-content-start">
                         <button className="btn btn-warning"><i className="fas fa-save px-2"></i>Save to watchlist</button>
-                        <button className="btn btn-outline-light mx-3"><i className="fas fa-eye mx-2"></i>Similar Movies</button>
+                        <button
+                            onClick={() => handleSimilarMovies(
+                                isMovieDetails ? movieDesc.id : movie.id
+                            )}
+                            className="btn btn-outline-light mx-3">
+                            <i className="fas fa-eye mx-2"></i>
+                            Similar Movies
+                        </button>
                     </div>
 
                 </div>

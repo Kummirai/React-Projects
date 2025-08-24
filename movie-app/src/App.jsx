@@ -38,7 +38,8 @@ function App() {
     }
 
     const handlePreviousPage = () => {
-        setCurrentPage(prevState => prevState - 1);
+        setCurrentPage(prevState => (
+            prevState > 1 ? prevState - 1 : prevState));
     }
 
     const handleShowMovieDetails = (movie) => {
@@ -48,6 +49,10 @@ function App() {
 
     const selectTab = (tab) => {
         setTabs(tab)
+    }
+
+    const handleSimilarMovies = (id) => {
+        console.log(id);
     }
 
     const handleTabSelection = (tab) => {
@@ -227,6 +232,7 @@ function App() {
                           handleShowMovieDetails={handleShowMovieDetails}
                           movieDesc={movie}
                           isMovieDetails={isMovieDetails}
+                          handleSimilarMovies={handleSimilarMovies}
                   />
                   <Footer
                       navLinks={navLinks}

@@ -4,7 +4,7 @@ const HomeMovieCard = ({movie}) => {
     return (
 
         <div className="d-flex col-sm-3 h-100 align-items-center">
-            <img src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
+            <img loading="lazy" src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
                  alt={movie?.title}
                  className="img-fluid w-100 h-100 object-fit-cover"
             />
