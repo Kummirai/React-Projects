@@ -18,7 +18,7 @@ function MoviesDetails({navLinks,movie,handleTabSelection}) {
                         <p className="gradient-text">TMDB rating</p>
                         <p className="mx-3"><i className="fas fa-star text-warning"></i><span className="text-white-50 mx-1">{movie?.vote_average.toFixed(1)}</span></p>
                     </div>
-                    <p className="text-white">{months[movie?.first_air_date.slice(6, 7)]} * {movie?.first_air_date.slice(0, 4)}</p>
+                    <p className="text-white">{months[movie?.first_air_date]} * {movie?.first_air_date}</p>
                     <p className="text-white gradient-text fw-normal">{movie?.overview}</p>
                     <button className="btn btn-danger gradient-text">Save to watchlist</button>
                 </div>
