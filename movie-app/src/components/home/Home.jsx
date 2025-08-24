@@ -33,7 +33,7 @@ const Home = ({navLinks, isMovieDetails, movie, movies, handleTabSelection, tabs
 
                             {movies.map((movie, index) => (
                                 index > 2 ? "" :
-                                    <HomeMovieCard key={index} movie={movie}/>
+                                    <HomeMovieCard key={movie.id} movie={movie}/>
                             ))
                             }
                         </div>

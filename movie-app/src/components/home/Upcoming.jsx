@@ -12,7 +12,7 @@ function Upcoming({movies, heading, handleMoreMovies, handleShowMovieDetails}) {
                 {movies.map((movie, index) => (
                     index < 10 ?
                     <UpcomingCard
-                        key = {index}
+                        key={movie.id}
                         movie={movie}
                         handleShowMovieDetails={handleShowMovieDetails}
                 /> : " "
