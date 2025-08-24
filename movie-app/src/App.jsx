@@ -51,6 +51,9 @@ function App() {
     }
 
     const selectTab = (tab) => {
+        if (tab === "Home") {
+            setIsSimilarMovies(false);
+        }
         setTabs(tab)
     }
 
