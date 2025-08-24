@@ -48,9 +48,14 @@ function Movies({navLinks,
                     "d-flex align-items-start flex-column justify-content-between position-relative col-sm-12 z-1 movie-page-height"
             }
                  style={!isSimilarMovies ? movieBasesBackground : plainBackground}>
-
-            <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
-            <div className="movie-theme position-absolute w-100 h-50 z-0"></div>
+                {!isSimilarMovies ?
+                    <>
+                        <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
+                        <div className="movie-theme position-absolute w-100 h-50 z-0"></div>
+                    </>
+                    :
+                    ""
+                }
             <div className="col-sm-12 flex-grow-1 p-5 pb-2 z-2">
                 <Header
                     navLinks={navLinks}
