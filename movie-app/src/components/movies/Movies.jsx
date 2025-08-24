@@ -37,7 +37,7 @@ function Movies({navLinks,
 
             <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
             <div className="movie-theme position-absolute w-100 h-50 z-0"></div>
-            <div className="col-sm-8 flex-grow-1 p-5 pb-2 z-2">
+            <div className="col-sm-12 flex-grow-1 p-5 pb-2 z-2">
                 <Header
                     navLinks={navLinks}
                     handleTabSelection={handleTabSelection}

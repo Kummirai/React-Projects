@@ -2,14 +2,16 @@ import React from 'react';
 
 const HomeMovieCard = ({movie}) => {
     return (
-        <div className="main-card col-sm-4">
-            <div className="main-card-image">
-                <img className="img-fluid object-fit-cover rounded-3 shadow-lg" src={"https://image.tmdb.org/t/p/w342/" + movie.poster_path} alt="main image" />
+
+        <div className="d-flex col-sm-3 h-100 align-items-center">
+            <img src={`https://image.tmdb.org/t/p/w342/${movie?.poster_path}`}
+                 alt={movie?.title}
+                 className="img-fluid w-100 h-100 object-fit-cover"
+            />
+            <div className="text-white">
+                <h2 className="fs-5">{movie?.title}</h2>
+                <h3 className="fs-6">{movie?.release_date}</h3>
             </div>
-            <div className="d-flex justify-content-between text-white mt-3">
-                <h3 className='line-clamp-1 mb-0'>{movie.name}</h3>
-            </div>
-            <p className="text-warning fw-bold text-start"><i className="fas fa-star"></i>({movie.vote_average.toFixed(1)})</p>
         </div>
     );
 };

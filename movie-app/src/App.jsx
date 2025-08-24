@@ -78,7 +78,7 @@ function App() {
         const genRandom = Math.round(Math.random() * (backgrounds.length - 1))
         setBackgroundIndex(genRandom)
 
-    }, [tabs]);
+    }, [backgrounds.length, tabs]);
 
     const bgTheme = {
         backgroundImage: `url(${backgrounds[backgroundIndex]})`,
@@ -179,6 +179,7 @@ function App() {
                         movie={movie}
                         handleTabSelection={handleTabSelection}
                         tabs={tabs}
+                        movies={movies}
                     />
                     <Recommendations
                         heading={navLinks[2]}
