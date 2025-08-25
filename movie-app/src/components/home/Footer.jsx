@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {MoviesContext} from "../../context/Context.jsx";
 
-function Footer({navLinks, handleTabSelection, socials}) {
+function Footer() {
+
+    const {navLinks, handleTabSelection, socials} = useContext(MoviesContext)
     return (
         <footer className="container-fluid d-flex align-items-start justify-content-between flex-column p-5 pb-1 d-flex flex-column bg-black">
             <div className="container row">

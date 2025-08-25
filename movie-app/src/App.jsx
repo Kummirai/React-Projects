@@ -214,8 +214,7 @@ function App() {
         currentPage: currentPage,
         handlePageChange: handlePageChange,
         handleShowMovieDetails: handleShowMovieDetails,
-
-
+        socials: socials
     }
 
 
@@ -226,27 +225,13 @@ function App() {
                   <MoviesContext.Provider value={context}>
                       <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
                           <Home/>
-                    <Recommendations
-                        heading={navLinks[2]}
-                    />
-                </div>
-                      <div className='bg-theme-1'>
-                          <Upcoming
-                              handleShowMovieDetails={handleShowMovieDetails}
-                              movies={topRatedMovies}
-                              heading={navLinks[5]}
-                          />
-                          <Upcoming
-                              handleShowMovieDetails={handleShowMovieDetails}
-                              movies={upComing}
-                              heading={navLinks[1]}
-                          />
+                          <Recommendations heading={navLinks[2]}/>
                       </div>
-                      <Footer
-                          navLinks={navLinks}
-                          handleTabSelection={handleTabSelection}
-                          socials={socials}
-                      />
+                      <div className='bg-theme-1'>
+                          <Upcoming heading={navLinks[5]}/>
+                          <Upcoming heading={navLinks[1]}/>
+                      </div>
+                      <Footer/>
                   </MoviesContext.Provider>
               </> :
               <>
