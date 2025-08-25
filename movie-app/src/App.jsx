@@ -20,6 +20,7 @@ function App() {
         "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
     ]
 
+    const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [movie, setMovie] = useState(null);
