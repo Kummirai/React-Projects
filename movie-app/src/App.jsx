@@ -214,9 +214,12 @@ function App() {
         currentPage: currentPage,
         handlePageChange: handlePageChange,
         handleShowMovieDetails: handleShowMovieDetails,
-        socials: socials
+        socials: socials,
+        handleMoreMovies: handleMoreMovies,
+        handleSimilarMovies: handleSimilarMovies,
+        isSimilarMovies: isSimilarMovies,
+        similarMovies: similarMovies,
     }
-
 
   return (
       <>
@@ -235,30 +238,10 @@ function App() {
                   </MoviesContext.Provider>
               </> :
               <>
-                  <Movies navLinks={navLinks}
-                          handleTabSelection={handleTabSelection}
-                          tabs={tabs}
-                          movies={upComing}
-                          heading="Movies"
-                          handleMoreMovies={handleMoreMovies}
-                          pages={pages}
-                          currentPage={currentPage}
-                          handlePageChange={handlePageChange}
-                          handlePreviousPage={handlePreviousPage}
-                          handleNextPage={handleNextPage}
-                          handleShowMovieDetails={handleShowMovieDetails}
-                          movieDesc={movie}
-                          isMovieDetails={isMovieDetails}
-                          handleSimilarMovies={handleSimilarMovies}
-                          isSimilarMovies={isSimilarMovies}
-                          similarMovies={similarMovies}
-
-                  />
-                  <Footer
-                      navLinks={navLinks}
-                      handleTabSelection={handleTabSelection}
-                      socials={socials}
-                  />
+                  <MoviesContext.Provider value={context}>
+                      <Movies navLinks={navLinks} heading="Movies" movieDesc={movie}/>
+                      <Footer/>
+                  </MoviesContext.Provider>
               </>
           }
       </>

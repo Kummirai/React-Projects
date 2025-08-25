@@ -1,25 +1,29 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Header from "../home/Header.jsx";
 import Upcoming from "../home/Upcoming.jsx";
 import Pagination from "../home/Pagination.jsx";
+import {MoviesContext} from "../../context/Context.jsx";
 
-function Movies({navLinks,
-                    handleTabSelection,
-                    tabs,
-                    movies,
-                    heading,
-                    handleMoreMovies,
-                    pages, handleNextPage,
-                    handlePreviousPage,
-                    handlePageChange,
-                    currentPage,
-                    handleShowMovieDetails,
-                    movieDesc,
-                    isMovieDetails,
-                    handleSimilarMovies,
-                    similarMovies,
-                    isSimilarMovies
-}) {
+function Movies() {
+
+    const {
+        navLinks,
+        handleTabSelection,
+        tabs,
+        movies,
+        heading,
+        handleMoreMovies,
+        pages, handleNextPage,
+        handlePreviousPage,
+        handlePageChange,
+        currentPage,
+        handleShowMovieDetails,
+        movieDesc,
+        isMovieDetails,
+        handleSimilarMovies,
+        similarMovies,
+        isSimilarMovies
+    } = useContext(MoviesContext)
 
     const [movie, setMovie] = React.useState([]);
 
@@ -102,13 +106,7 @@ function Movies({navLinks,
                     <Upcoming
                         movies={similarMovies}
                     />
-                    <Pagination
-                        pages={pages}
-                        handleNextPage={handleNextPage}
-                        handlePreviousPage={handlePreviousPage}
-                        handlePageChange={handlePageChange}
-                        currentPage={currentPage}
-                    />
+                    <Pagination pages={pages}/>
                 </div>
             }
         </div>
@@ -116,19 +114,8 @@ function Movies({navLinks,
                 :
                 <div className="position-relative">
                     <div className="movie-theme-top position-absolute w-100 h-25 z-n1"></div>
-                    <Upcoming
-                        heading={heading}
-                        movies={movies}
-                        handleMoreMovies={handleMoreMovies}
-                        handleShowMovieDetails={handleShowMovieDetails}
-                    />
-                    <Pagination
-                        pages={pages}
-                        handleNextPage={handleNextPage}
-                        handlePreviousPage={handlePreviousPage}
-                        handlePageChange={handlePageChange}
-                        currentPage={currentPage}
-                    />
+                    <Upcoming heading={heading}/>
+                    <Pagination/>
                 </div>
             }
         </>
