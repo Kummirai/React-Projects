@@ -6,6 +6,7 @@ function MoviesDetails() {
 
     const months =["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
     const {movie} = useContext(MoviesContext)
+    console.log(movie)
 
     return (
         <div className="container-fluid d-flex">

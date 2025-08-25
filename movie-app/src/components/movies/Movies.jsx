@@ -4,7 +4,7 @@ import Upcoming from "../home/Upcoming.jsx";
 import Pagination from "../home/Pagination.jsx";
 import {MoviesContext} from "../../context/Context.jsx";
 
-function Movies() {
+function Movies({movieDesc}) {
 
 
     const {
@@ -14,13 +14,14 @@ function Movies() {
         pages,
         movies,
         heading,
-        movieDesc,
         isMovieDetails,
         handleSimilarMovies,
         similarMovies,
         isSimilarMovies,
         upComing
     } = useContext(MoviesContext)
+
+    console.log(movieDesc)
 
     const [movie, setMovie] = React.useState([]);
 
