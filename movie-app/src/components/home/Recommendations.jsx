@@ -3,9 +3,9 @@ import RecommendationsCard from "./RecommendationsCard.jsx";
 import More from "./More.jsx";
 import {MoviesContext} from "../../context/Context.jsx";
 
-function Recommendations({handleShowMovieDetails, isMovieDetails, heading}) {
+function Recommendations({heading}) {
 
-    const {movies} = useContext(MoviesContext);
+    const {movies, handleShowMovieDetails, isMovieDetails} = useContext(MoviesContext);
 
     return (
         <div className={isMovieDetails ? "bg-blur bg-theme" : "bg-theme"}>

@@ -208,6 +208,14 @@ function App() {
         setIsMovieDetails: setIsMovieDetails,
         handleTabSelection: handleTabSelection,
         movieIndex: movieIndex,
+        pages: pages,
+        handleNextPage: handleNextPage,
+        handlePreviousPage: handlePreviousPage,
+        currentPage: currentPage,
+        handlePageChange: handlePageChange,
+        handleShowMovieDetails: handleShowMovieDetails,
+
+
     }
 
 
@@ -220,15 +228,7 @@ function App() {
                           <Home/>
                     <Recommendations
                         heading={navLinks[2]}
-                        movieIndex={movieIndex}
-                        pages={pages}
-                        handleNextPage={handleNextPage}
-                        handlePreviousPage={handlePreviousPage}
-                        handlePageChange={handlePageChange}
-                        currentPage={currentPage}
-                        handleShowMovieDetails={handleShowMovieDetails}
-                        isMovieDetails={isMovieDetails}
-                />
+                    />
                 </div>
                       <div className='bg-theme-1'>
                           <Upcoming
