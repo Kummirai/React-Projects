@@ -36,9 +36,6 @@ function Movies({navLinks,
         backgroundPosition: "top center"
     }
 
-    const plainBackground = {
-        backgroundColor: "rgb(21,21, 21, 1)"
-    }
 
     return (
         <>
@@ -47,7 +44,7 @@ function Movies({navLinks,
                     "home-bg d-flex align-items-start flex-column justify-content-between position-relative col-sm-12 z-1 movie-page-height" :
                     "d-flex align-items-start flex-column justify-content-between position-relative col-sm-12 z-1 movie-page-height"
             }
-                 style={!isSimilarMovies ? movieBasesBackground : plainBackground}>
+                 style={movieBasesBackground}>
                 {!isSimilarMovies ?
                     <>
                         <div className="movie-theme-top position-absolute w-100 h-25 z-0"></div>
@@ -56,7 +53,7 @@ function Movies({navLinks,
                     :
                     ""
                 }
-            <div className="col-sm-12 flex-grow-1 p-5 pb-2 z-2">
+                <div className={"col-sm-12 flex-grow-1 p-5 pb-2 z-2"}>
                 <Header
                     navLinks={navLinks}
                     handleTabSelection={handleTabSelection}
@@ -96,9 +93,21 @@ function Movies({navLinks,
                     </div>
                 </div>
                 :
-                <div className="container">
+                <div className="container blur-bg">
+                    <div className="pt-5">
+                        <h2 className="text-white text-center fs-4">Movies similar to <br/><span
+                            className="text-warning fw-bold display-6">{isMovieDetails ? movieDesc?.title : movie.title}</span>
+                        </h2>
+                    </div>
                     <Upcoming
                         movies={similarMovies}
+                    />
+                    <Pagination
+                        pages={pages}
+                        handleNextPage={handleNextPage}
+                        handlePreviousPage={handlePreviousPage}
+                        handlePageChange={handlePageChange}
+                        currentPage={currentPage}
                     />
                 </div>
             }

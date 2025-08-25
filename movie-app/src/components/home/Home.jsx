@@ -1,8 +1,13 @@
 import Header from "./Header.jsx";
 import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
+import {useContext} from "react";
+import {MoviesContext} from "../../context/Context.jsx";
 
-const Home = ({navLinks, isMovieDetails, movie, movies, handleTabSelection, tabs}) => {
+const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
+
+    const movies = useContext(MoviesContext);
+
     return (
         <div className="container-fluid home  position-relative d-flex p-0">
             {isMovieDetails ?

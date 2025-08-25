@@ -4,6 +4,8 @@ import Recommendations from "./components/home/Recommendations.jsx";
 import Upcoming from "./components/home/Upcoming.jsx";
 import Footer from "./components/home/Footer.jsx";
 import Movies from "./components/movies/Movies.jsx";
+import {MoviesContext} from "./context/Context.jsx";
+
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
         "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
     ]
 
+    const API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYmM2ZWUxM2UyOWNhMzY1MGY0NDQ4ZTg2MmNjNjcxZSIsIm5iZiI6MTcyNDAxMjQxMS4zNjMwMDAyLCJzdWIiOiI2NmMyNTc3YmI5YjJiNzM5NTlkMGMzNjkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.jk7oaLJtEo4M5hW289ifRvozNNsia5j96zVwrrnPeig'
 
     const [currentPage, setCurrentPage] = useState(1);
     const [movie, setMovie] = useState(null);
@@ -178,7 +181,7 @@ function App() {
     }, [currentPage]);
 
     useEffect(() => {
-        const url = `https://api.themoviedb.org/3/movie/${similarMoviesId}/similar?language=en-US&page=1`;
+        const url = `https://api.themoviedb.org/3/movie/${similarMoviesId}/similar?language=en-US&page=${currentPage}`;
         const options = {
             method: 'GET',
             headers: {
@@ -193,25 +196,27 @@ function App() {
                 setSimilarMovies(json.results)
             })
             .catch(err => console.error(err));
-    }, [similarMoviesId]);
+    }, [similarMoviesId, currentPage]);
 
 
   return (
       <>
           { tabs === "Home" ?
               <>
-                <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
-                    <Home
-                        navLinks={navLinks}
-                        topRatedMovies={movies}
-                        movieIndex={movieIndex}
-                        isMovieDetails = {isMovieDetails}
-                        setIsMovieDetails = {setIsMovieDetails}
-                        movie={movie}
-                        handleTabSelection={handleTabSelection}
-                        tabs={tabs}
-                        movies={movies}
-                    />
+                  <MoviesContext.Provider value={movies}>
+                      <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
+
+                          <Home
+                              navLinks={navLinks}
+                              topRatedMovies={movies}
+                              movieIndex={movieIndex}
+                              isMovieDetails={isMovieDetails}
+                              setIsMovieDetails={setIsMovieDetails}
+                              movie={movie}
+                              handleTabSelection={handleTabSelection}
+                              tabs={tabs}
+                          />
+
                     <Recommendations
                         heading={navLinks[2]}
                         movies={movies}
@@ -225,23 +230,24 @@ function App() {
                         isMovieDetails={isMovieDetails}
                 />
                 </div>
-                <div className='bg-theme-1'>
-                  <Upcoming
-                      handleShowMovieDetails={handleShowMovieDetails}
-                      movies={topRatedMovies}
-                      heading={navLinks[5]}
-                  />
-                  <Upcoming
-                      handleShowMovieDetails={handleShowMovieDetails}
-                      movies={upComing}
-                      heading={navLinks[1]}
-                  />
-                </div>
-                  <Footer
-                  navLinks={navLinks}
-                  handleTabSelection={handleTabSelection}
-                  socials={socials}
-                  />
+                      <div className='bg-theme-1'>
+                          <Upcoming
+                              handleShowMovieDetails={handleShowMovieDetails}
+                              movies={topRatedMovies}
+                              heading={navLinks[5]}
+                          />
+                          <Upcoming
+                              handleShowMovieDetails={handleShowMovieDetails}
+                              movies={upComing}
+                              heading={navLinks[1]}
+                          />
+                      </div>
+                      <Footer
+                          navLinks={navLinks}
+                          handleTabSelection={handleTabSelection}
+                          socials={socials}
+                      />
+                  </MoviesContext.Provider>
               </> :
               <>
                   <Movies navLinks={navLinks}
@@ -275,3 +281,4 @@ function App() {
 }
 
 export default App
+
