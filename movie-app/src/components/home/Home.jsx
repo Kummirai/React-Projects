@@ -4,9 +4,9 @@ import MoviesDetails from "./MoviesDetails.jsx";
 import {useContext} from "react";
 import {MoviesContext} from "../../context/Context.jsx";
 
-const Home = ({navLinks, isMovieDetails, movie, handleTabSelection, tabs}) => {
+const Home = () => {
 
-    const movies = useContext(MoviesContext);
+    const {movies, navLinks, isMovieDetails, movie, handleTabSelection, tabs} = useContext(MoviesContext);
 
     return (
         <div className="container-fluid home  position-relative d-flex p-0">

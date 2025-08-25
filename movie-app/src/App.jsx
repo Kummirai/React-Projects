@@ -198,28 +198,28 @@ function App() {
             .catch(err => console.error(err));
     }, [similarMoviesId, currentPage]);
 
+    const context = {
+        movies: movies,
+        navLinks: navLinks,
+        isMovieDetails: isMovieDetails,
+        movie: movie,
+        tabs: tabs,
+        topRatedMovies: topRatedMovies,
+        setIsMovieDetails: setIsMovieDetails,
+        handleTabSelection: handleTabSelection,
+        movieIndex: movieIndex,
+    }
+
 
   return (
       <>
           { tabs === "Home" ?
               <>
-                  <MoviesContext.Provider value={movies}>
+                  <MoviesContext.Provider value={context}>
                       <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
-
-                          <Home
-                              navLinks={navLinks}
-                              topRatedMovies={movies}
-                              movieIndex={movieIndex}
-                              isMovieDetails={isMovieDetails}
-                              setIsMovieDetails={setIsMovieDetails}
-                              movie={movie}
-                              handleTabSelection={handleTabSelection}
-                              tabs={tabs}
-                          />
-
+                          <Home/>
                     <Recommendations
                         heading={navLinks[2]}
-                        movies={movies}
                         movieIndex={movieIndex}
                         pages={pages}
                         handleNextPage={handleNextPage}
