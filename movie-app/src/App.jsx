@@ -196,7 +196,7 @@ function App() {
                 setSimilarMovies(json.results)
             })
             .catch(err => console.error(err));
-    }, [similarMoviesId, currentPage]);
+    }, [similarMoviesId, currentPage, API_KEY]);
 
     const context = {
         movies: movies,
