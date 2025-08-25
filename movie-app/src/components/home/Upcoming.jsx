@@ -3,9 +3,9 @@ import UpcomingCard from "./UpcomingCard.jsx";
 import More from "./More.jsx";
 import {MoviesContext} from "../../context/Context.jsx";
 
-function Upcoming({heading,}) {
+function Upcoming({heading, movies}) {
 
-    const {movies, handleMoreMovies, handleShowMovieDetails} = useContext(MoviesContext);
+    const {handleMoreMovies, handleShowMovieDetails} = useContext(MoviesContext);
     return (
         <div className="mb-5">
             <div className="d-flex align-items-center justify-content-start  p-5 pb-0">

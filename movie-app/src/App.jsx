@@ -219,6 +219,7 @@ function App() {
         handleSimilarMovies: handleSimilarMovies,
         isSimilarMovies: isSimilarMovies,
         similarMovies: similarMovies,
+        upComing: upComing,
     }
 
   return (
@@ -228,11 +229,10 @@ function App() {
                   <MoviesContext.Provider value={context}>
                       <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
                           <Home/>
-                          <Recommendations heading={navLinks[2]}/>
+                          <Recommendations heading={navLinks[2]} movies={movies}/>
                       </div>
                       <div className='bg-theme-1'>
-                          <Upcoming heading={navLinks[5]}/>
-                          <Upcoming heading={navLinks[1]}/>
+                          <Upcoming heading={navLinks[1]} movies={upComing}/>
                       </div>
                       <Footer/>
                   </MoviesContext.Provider>

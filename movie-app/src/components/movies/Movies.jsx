@@ -6,23 +6,20 @@ import {MoviesContext} from "../../context/Context.jsx";
 
 function Movies() {
 
+
     const {
         navLinks,
         handleTabSelection,
         tabs,
+        pages,
         movies,
         heading,
-        handleMoreMovies,
-        pages, handleNextPage,
-        handlePreviousPage,
-        handlePageChange,
-        currentPage,
-        handleShowMovieDetails,
         movieDesc,
         isMovieDetails,
         handleSimilarMovies,
         similarMovies,
-        isSimilarMovies
+        isSimilarMovies,
+        upComing
     } = useContext(MoviesContext)
 
     const [movie, setMovie] = React.useState([]);
@@ -114,7 +111,7 @@ function Movies() {
                 :
                 <div className="position-relative">
                     <div className="movie-theme-top position-absolute w-100 h-25 z-n1"></div>
-                    <Upcoming heading={heading}/>
+                    <Upcoming heading={heading} movies={upComing}/>
                     <Pagination/>
                 </div>
             }

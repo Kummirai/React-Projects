@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {MoviesContext} from "../../context/Context.jsx";
 
-const Header = ({navLinks, handleTabSelection, tabs}) => {
+const Header = () => {
 
+    const {navLinks, handleTabSelection, tabs} = useContext(MoviesContext);
     return (
         <header>
             <nav className="col-sm-8 d-flex justify-content-between align-items-center text-white">

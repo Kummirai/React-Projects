@@ -1,17 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Header from "./Header.jsx";
+import {MoviesContext} from "../../context/Context.jsx";
 
-function MoviesDetails({navLinks,movie,handleTabSelection}) {
+function MoviesDetails() {
 
     const months =["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    const {movie} = useContext(MoviesContext)
 
     return (
         <div className="container-fluid d-flex">
             <div className="col-sm-12 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-start z-2">
-                <Header
-                    navLinks={navLinks}
-                    handleTabSelection={handleTabSelection}
-                />
+                <Header/>
                 <div className="row">
                     <div className="m-auto col-sm-8 text-white px-5 py-4 rounded-4">
                         <h2 className="fw-bold display-2 gradient-text">{movie?.name}</h2>
