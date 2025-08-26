@@ -20,6 +20,14 @@ function App() {
         "https://image.tmdb.org/t/p/original//KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
     ]
 
+    const backgroundsForMovies = [
+        "https://image.tmdb.org/t/p/original//AEgggzRr1vZCLY86MAp93li43z.jpg",
+        "https://image.tmdb.org/t/p/original//8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+        "https://image.tmdb.org/t/p/original//fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+        "https://image.tmdb.org/t/p/original//2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+        "https://image.tmdb.org/t/p/original//AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg"
+    ]
+
     const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,7 +39,7 @@ function App() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [movieIndex, setMovieIndex] = useState(randomIndex);
     const [backgroundIndex, setBackgroundIndex] = useState(null);
-    const [tabs, setTabs] = useState("Home");
+    const [tabs, setTabs] = useState("");
     const [similarMoviesId, setSimilarMoviesId] = useState(259075);
     const [isSimilarMovies, setIsSimilarMovies] = useState(false);
     const [similarMovies, setSimilarMovies] = useState([]);
@@ -55,23 +63,9 @@ function App() {
         setMovie(movie);
     }
 
-    const selectTab = (tab) => {
-        if (tab === "Home") {
-            setIsSimilarMovies(false);
-        }
-        setTabs(tab)
-    }
-
     const handleSimilarMovies = (id) => {
         setSimilarMoviesId(id)
         setIsSimilarMovies(true)
-    }
-
-    const handleTabSelection = (tab) => {
-        selectTab(tab)
-        if (tab === "Home") {
-            setIsMovieDetails(false)
-        }
     }
 
     const fetchData = (currentPage, type) => {
@@ -95,10 +89,17 @@ function App() {
         const genRandom = Math.round(Math.random() * (backgrounds.length - 1))
         setBackgroundIndex(genRandom)
 
-    }, [backgrounds.length, tabs]);
+    }, [tabs]);
 
     const bgTheme = {
         backgroundImage: `url(${backgrounds[backgroundIndex]})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top"
+    }
+
+    const moviesBackground = {
+        backgroundImage: `url(${backgroundsForMovies[backgroundIndex]})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top"
@@ -208,7 +209,6 @@ function App() {
         tabs: tabs,
         topRatedMovies: topRatedMovies,
         setIsMovieDetails: setIsMovieDetails,
-        handleTabSelection: handleTabSelection,
         movieIndex: movieIndex,
         pages: pages,
         handleNextPage: handleNextPage,
@@ -224,6 +224,10 @@ function App() {
         upComing: upComing,
         bgTheme: bgTheme,
         movieDetailTheme: movieDetailTheme,
+        setTabs: setTabs,
+        moviesBackground: moviesBackground,
+        backgroundsForMovies: backgroundsForMovies,
+        backgroundIndex: backgroundIndex,
     }
 
   return (

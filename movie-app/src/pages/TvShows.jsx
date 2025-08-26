@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Header from "../components/Header.jsx";
 import Hero from "../components/Hero.jsx";
 import TVShowsContainer from "../components/TVShowsContainer";
@@ -7,6 +7,14 @@ import Pagination from "../components/Pagination.jsx";
 import Footer from "../components/Footer.jsx";
 
 function TvShows() {
+
+
+    const {setTabs, setIsMovieDetails} = useContext(MoviesContext);
+
+    useEffect(() => {
+        setTabs("TV Shows");
+        setIsMovieDetails(false);
+    }, []);
 
     const {movies, isMovieDetails, movieDetailTheme, bgTheme} = useContext(MoviesContext);
     return (

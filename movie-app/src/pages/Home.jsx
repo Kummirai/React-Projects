@@ -48,14 +48,14 @@ const Home = () => {
                             <p className="mt-4 mb-5 gradient-text ">Your ultimate movie companion, on the go, Your movie night, anytime, anywhere.</p>
                             <button className="btn btn-danger gradient-text">Browse Movies</button>
                         </div>
-                        <div className="container d-flex justify-content-between movie-cards">
+                        {/*<div className="container d-flex justify-content-between movie-cards">*/}
 
-                            {movies.map((movie, index) => (
-                                index > 2 ? "" :
-                                    <HomeMovieCard key={movie.id} movie={movie}/>
-                            ))
-                            }
-                        </div>
+                        {/*    {movies.map((movie, index) => (*/}
+                        {/*        index > 2 ? "" :*/}
+                        {/*            <HomeMovieCard key={movie.id} movie={movie}/>*/}
+                        {/*    ))*/}
+                        {/*    }*/}
+                        {/*</div>*/}
                     </div>
                 </>
             )}
