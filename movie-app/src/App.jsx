@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import Movies from "./components/movies/Movies.jsx";
 import {MoviesContext} from "./context/Context.jsx";
 import {Routes, Route} from "react-router-dom";
+import TvShows from "./pages/TvShows.jsx";
+import WatchList from "./pages/WatchList.jsx";
 
 
 function App() {
@@ -228,6 +230,8 @@ function App() {
               <Routes>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/movies" element={<Movies heading="Movies" movieDesc={movie}/>}/>
+                  <Route path="/tvshows" element={<TvShows/>}/>
+                  <Route path="watchlist" element={<WatchList/>}/>
               </Routes>
           </MoviesContext.Provider>
       </>
