@@ -338,6 +338,18 @@ footer p{
     rgba(64, 6, 6, 1) 100%);
 }
 
+.tv-card {
+    box-shadow: 2px 2px 2px 2px #780206;
+    transition: 0.3s;
+    border-radius: 5px; /* optional for rounded corners */
+}
+
+/* Hover effect for deeper shadow */
+.tv-card:hover {
+    box-shadow: 2px 2px 2px 2px #FFFFFF;
+}
+
+
 footer {
     background: #780206; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #780206, #780206); /* Chrome 10-25, Safari 5.1-6 */

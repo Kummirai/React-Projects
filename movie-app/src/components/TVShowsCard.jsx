@@ -3,7 +3,7 @@ import React from 'react';
 function TVShowsCard({movie, handleShowMovieDetails}) {
 
     return (
-        <a href="#" onClick={()=>handleShowMovieDetails(movie)} className="text-decoration-none bx-shadow">
+        <a href="#" onClick={() => handleShowMovieDetails(movie)} className="text-decoration-none tv-card bx-shadow">
             <div className='d-flex flex-column justify-content-between recommendation-card rounded-3'>
                 <div className="mb-2">
                     <img className="img-fluid rounded-2" loading="lazy"
