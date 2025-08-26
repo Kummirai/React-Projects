@@ -1,10 +1,8 @@
 import Home from "./components/home/Home.jsx";
 import {useEffect, useState} from "react";
-import Recommendations from "./components/home/Recommendations.jsx";
-import Upcoming from "./components/home/Upcoming.jsx";
-import Footer from "./components/home/Footer.jsx";
 import Movies from "./components/movies/Movies.jsx";
 import {MoviesContext} from "./context/Context.jsx";
+import {Routes, Route} from "react-router-dom";
 
 
 function App() {
@@ -227,10 +225,10 @@ function App() {
   return (
       <>
           <MoviesContext.Provider value={context}>
-              <Home/>
-          </MoviesContext.Provider>
-          <MoviesContext.Provider value={context}>
-              <Movies heading="Movies" movieDesc={movie}/>
+              <Routes>
+                  <Route path="/" element={<Home/>}/>
+                  <Route path="/movies" element={<Movies heading="Movies" movieDesc={movie}/>}/>
+              </Routes>
           </MoviesContext.Provider>
       </>
   )
