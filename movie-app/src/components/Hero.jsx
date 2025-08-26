@@ -3,7 +3,7 @@ import {MoviesContext} from "../context/Context.jsx";
 
 function Hero() {
 
-    const {movie, isMovieDetails, tabs} = useContext(MoviesContext);
+    const {movie, isMovieDetails, tabs, saveToWatchlist} = useContext(MoviesContext);
 
     return (
         <>
@@ -32,11 +32,13 @@ function Hero() {
                     className="fa-solid fa-circle text-warning gradient-text px-2"></i></p><p
                     className="fw-bold gradient-text">{tabs === "TV Shows" ? movie?.first_air_date.slice(0, 4) : movie?.release_date.slice(0, 4)}</p>
                 </div>
-                <p className="gradient-text py-3 w-75 blur-bg text-blur">{movie?.overview}<a href="#"
+                <p className="gradient-text py-3 w-75 mb-4 blur-bg text-blur">{movie?.overview}<a href="#"
                                                                                              className="text-warning more-details mx-2">More
                     details</a></p>
                 <div className="d-flex align-items-center justify-content-start">
-                    <button className="btn btn-warning"><i className="fas fa-save px-2"></i>Save to watchlist</button>
+                    <button onClick={() => saveToWatchlist(movie)} className="btn btn-warning"><i
+                        className="fas fa-save px-2"></i>Save to watchlist
+                    </button>
                     <button className="btn btn-outline-light mx-3"><i className="fas fa-eye mx-2"></i><span
                         className="text-blur">Similar Movies</span>
                     </button>

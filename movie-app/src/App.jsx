@@ -43,6 +43,7 @@ function App() {
     const [similarMoviesId, setSimilarMoviesId] = useState(259075);
     const [isSimilarMovies, setIsSimilarMovies] = useState(false);
     const [similarMovies, setSimilarMovies] = useState([]);
+    const [watchList, setWatchList] = useState([]);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -67,6 +68,24 @@ function App() {
         setSimilarMoviesId(id)
         setIsSimilarMovies(true)
     }
+
+    const saveToWatchlist = (movie) => {
+        watchList.push(movie)
+        setMovie(watchList)
+        setIsMovieDetails(false)
+        localStorage.setItem("watchList", JSON.stringify(watchList))
+        alert("Successfully updated watchlist")
+    }
+
+    useEffect(() => {
+        const storedWatchlist = localStorage.getItem('watchList'); // 'watchList' is the key
+        if (storedWatchlist) {
+            setWatchList(JSON.parse(storedWatchlist)); // parse string to array
+        } else {
+            setWatchList([]); // default to empty array if nothing stored
+        }
+    }, []); // empty dependency array to run once on mount
+
 
     const fetchData = (currentPage, type) => {
         const url = `https://api.themoviedb.org/3/discover/${type}?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=popularity.desc`;
@@ -228,6 +247,9 @@ function App() {
         moviesBackground: moviesBackground,
         backgroundsForMovies: backgroundsForMovies,
         backgroundIndex: backgroundIndex,
+        watchList: watchList,
+        setWatchList: setWatchList,
+        saveToWatchlist: saveToWatchlist,
     }
 
   return (

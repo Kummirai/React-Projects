@@ -357,3 +357,8 @@ footer {
 
 }
 
+/*Watchlist styles */
+.watch-list-container {
+    grid-column: 1/-1;
+}
+
