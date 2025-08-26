@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {MoviesContext} from "../../context/Context.jsx";
+import {MoviesContext} from "../context/Context.jsx";
 
 function Footer() {
 

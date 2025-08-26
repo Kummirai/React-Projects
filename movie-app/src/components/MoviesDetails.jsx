@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
-import Header from "./Header.jsx";
-import {MoviesContext} from "../../context/Context.jsx";
 
-function MoviesDetails() {
+import Header from "./Header.jsx";
+import {MoviesContext} from "../context/Context.jsx";
+
+function MoviesDetails({movie}) {
 
     const months =["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-    const {movie} = useContext(MoviesContext)
+
     console.log(movie)
 
     return (

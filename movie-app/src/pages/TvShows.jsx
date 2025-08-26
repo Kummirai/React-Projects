@@ -1,11 +1,15 @@
 import React from 'react';
-import Header from "../components/home/Header.jsx";
+import Header from "../components/Header.jsx";
+import Hero from "./Hero.jsx";
 
 function TvShows() {
     return (
         <>
-            <div className="col-sm-8 flex-grow-1 p-5 pb-2 home-grid z-2">
-                <Header/>
+            <div className="container">
+                <div className="hero tv-show">
+                    <Header/>
+                    <Hero/>
+                </div>
             </div>
         </>
     );

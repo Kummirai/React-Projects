@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import UpcomingCard from "./UpcomingCard.jsx";
 import More from "./More.jsx";
-import {MoviesContext} from "../../context/Context.jsx";
+import {MoviesContext} from "../context/Context.jsx";
 
 function Upcoming({heading, movies}) {
 

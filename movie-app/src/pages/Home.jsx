@@ -1,11 +1,11 @@
-import Header from "./Header.jsx";
-import HomeMovieCard from "./HomeMovieCard.jsx";
-import MoviesDetails from "./MoviesDetails.jsx";
+import Header from "../components/Header.jsx";
+import HomeMovieCard from "../components/HomeMovieCard.jsx";
+import MoviesDetails from "../components/MoviesDetails.jsx";
 import {useContext} from "react";
-import {MoviesContext} from "../../context/Context.jsx";
-import Recommendations from "./Recommendations.jsx";
-import Upcoming from "./Upcoming.jsx";
-import Footer from "./Footer.jsx";
+import {MoviesContext} from "../context/Context.jsx";
+import Recommendations from "../components/Recommendations.jsx";
+import Upcoming from "../components/Upcoming.jsx";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
 

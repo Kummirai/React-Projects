@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react';
-import Header from "../home/Header.jsx";
-import Upcoming from "../home/Upcoming.jsx";
-import Pagination from "../home/Pagination.jsx";
-import {MoviesContext} from "../../context/Context.jsx";
-import Footer from "../home/Footer.jsx";
+import Header from "../components/Header.jsx";
+import Upcoming from "../components/Upcoming.jsx";
+import Pagination from "../components/Pagination.jsx";
+import {MoviesContext} from "../context/Context.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Movies({movieDesc}) {
 

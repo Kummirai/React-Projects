@@ -1,6 +1,6 @@
-import Home from "./components/home/Home.jsx";
+import Home from "./pages/Home.jsx";
 import {useEffect, useState} from "react";
-import Movies from "./components/movies/Movies.jsx";
+import Movies from "./pages/Movies.jsx";
 import {MoviesContext} from "./context/Context.jsx";
 import {Routes, Route} from "react-router-dom";
 import TvShows from "./pages/TvShows.jsx";
