@@ -35,7 +35,8 @@ function Hero() {
                     details</a></p>
                 <div className="d-flex align-items-center justify-content-start">
                     <button className="btn btn-warning"><i className="fas fa-save px-2"></i>Save to watchlist</button>
-                    <button className="btn btn-outline-light mx-3"><i className="fas fa-eye mx-2"></i>Similar Movies
+                    <button className="btn btn-outline-light mx-3"><i className="fas fa-eye mx-2"></i><span
+                        className="text-blur">Similar Movies</span>
                     </button>
                 </div>
             </div>

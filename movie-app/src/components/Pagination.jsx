@@ -13,7 +13,7 @@ function Pagination() {
                 <div className="text-white d-flex justify-content-around p-2">
                     {pages.map((page, index=1) => (
                         <p onClick={() => handlePageChange(page)} key={index}
-                           className={currentPage === page ? "mb-0 btn btn-light mx-2 " : "mb-0 btn btn-outline-light mx-2 "}>
+                           className={currentPage === page ? "fw-bold mb-0 btn btn-light mx-2 " : "fw-bolder mb-0 btn btn-outline-light mx-2 "}>
                             { page }
                         </p>
                     ))}

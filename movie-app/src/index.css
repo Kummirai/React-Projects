@@ -339,14 +339,14 @@ footer p{
 }
 
 .tv-card {
-    box-shadow: 2px 2px 2px 2px #780206;
+    box-shadow: 2px 1px 1px 2px #1c1c1c;
     transition: 0.3s;
     border-radius: 5px; /* optional for rounded corners */
 }
 
 /* Hover effect for deeper shadow */
 .tv-card:hover {
-    box-shadow: 2px 2px 2px 2px #FFFFFF;
+    box-shadow: 2px 1px 1px 2px #5d5d5d;
 }
 
 
