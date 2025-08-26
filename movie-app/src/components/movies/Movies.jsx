@@ -3,6 +3,7 @@ import Header from "../home/Header.jsx";
 import Upcoming from "../home/Upcoming.jsx";
 import Pagination from "../home/Pagination.jsx";
 import {MoviesContext} from "../../context/Context.jsx";
+import Footer from "../home/Footer.jsx";
 
 function Movies({movieDesc}) {
 
@@ -20,8 +21,6 @@ function Movies({movieDesc}) {
         isSimilarMovies,
         upComing
     } = useContext(MoviesContext)
-
-    console.log(movieDesc)
 
     const [movie, setMovie] = React.useState([]);
 
@@ -116,6 +115,7 @@ function Movies({movieDesc}) {
                     <Pagination/>
                 </div>
             }
+            <Footer/>
         </>
     );
 }

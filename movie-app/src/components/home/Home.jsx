@@ -3,13 +3,28 @@ import HomeMovieCard from "./HomeMovieCard.jsx";
 import MoviesDetails from "./MoviesDetails.jsx";
 import {useContext} from "react";
 import {MoviesContext} from "../../context/Context.jsx";
+import Recommendations from "./Recommendations.jsx";
+import Upcoming from "./Upcoming.jsx";
+import Footer from "./Footer.jsx";
 
 const Home = () => {
 
-    const {movies, navLinks, isMovieDetails, movie, handleTabSelection, tabs} = useContext(MoviesContext);
+    const {
+        movies,
+        upComing,
+        bgTheme,
+        movieDetailTheme,
+        navLinks,
+        isMovieDetails,
+        movie,
+        handleTabSelection,
+        tabs
+    } = useContext(MoviesContext);
 
     return (
-        <div className="container-fluid home  position-relative d-flex p-0">
+        <>
+            <div className="container-fluid home  position-relative d-flex p-0"
+                 style={!isMovieDetails ? bgTheme : movieDetailTheme}>
             {isMovieDetails ?
                 <>
                     <MoviesDetails
@@ -46,6 +61,12 @@ const Home = () => {
             )}
 
         </div>
+            <Recommendations heading={navLinks[2]} movies={movies}/>
+            <div className='bg-theme-1'>
+                <Upcoming heading={navLinks[1]} movies={upComing}/>
+            </div>
+            <Footer/>
+        </>
     );
 };
 

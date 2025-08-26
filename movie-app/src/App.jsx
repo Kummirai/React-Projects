@@ -220,30 +220,18 @@ function App() {
         isSimilarMovies: isSimilarMovies,
         similarMovies: similarMovies,
         upComing: upComing,
+        bgTheme: bgTheme,
+        movieDetailTheme: movieDetailTheme,
     }
 
   return (
       <>
-          { tabs === "Home" ?
-              <>
-                  <MoviesContext.Provider value={context}>
-                      <div className="d-flex flex-column" style={!isMovieDetails ? bgTheme : movieDetailTheme}>
-                          <Home/>
-                          <Recommendations heading={navLinks[2]} movies={movies}/>
-                      </div>
-                      <div className='bg-theme-1'>
-                          <Upcoming heading={navLinks[1]} movies={upComing}/>
-                      </div>
-                      <Footer/>
-                  </MoviesContext.Provider>
-              </> :
-              <>
-                  <MoviesContext.Provider value={context}>
-                      <Movies navLinks={navLinks} heading="Movies" movieDesc={movie}/>
-                      <Footer/>
-                  </MoviesContext.Provider>
-              </>
-          }
+          <MoviesContext.Provider value={context}>
+              <Home/>
+          </MoviesContext.Provider>
+          <MoviesContext.Provider value={context}>
+              <Movies heading="Movies" movieDesc={movie}/>
+          </MoviesContext.Provider>
       </>
   )
 }
