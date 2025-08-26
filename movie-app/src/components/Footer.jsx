@@ -5,7 +5,8 @@ function Footer() {
 
     const {navLinks, handleTabSelection, socials} = useContext(MoviesContext)
     return (
-        <footer className="container-fluid d-flex align-items-start justify-content-between flex-column p-5 pb-1 d-flex flex-column bg-black">
+        <footer
+            className="container-fluid d-flex align-items-start justify-content-between flex-column p-5 pb-1 d-flex flex-column">
             <div className="container row">
                 <div className="col-sm-2 text-white">
                     <h2 className="gradient-text">Movie App</h2>

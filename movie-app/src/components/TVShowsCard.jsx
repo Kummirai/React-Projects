@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RecommendationsCard ({movie, handleShowMovieDetails}) {
+function TVShowsCard({movie, handleShowMovieDetails}) {
 
     return (
         <a href="#" onClick={()=>handleShowMovieDetails(movie)} className="text-decoration-none bx-shadow">
@@ -20,6 +20,6 @@ function RecommendationsCard ({movie, handleShowMovieDetails}) {
     );
 }
 
-export default RecommendationsCard;
+export default TVShowsCard;
 
 

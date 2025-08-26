@@ -3,8 +3,8 @@ import HomeMovieCard from "../components/HomeMovieCard.jsx";
 import MoviesDetails from "../components/MoviesDetails.jsx";
 import {useContext} from "react";
 import {MoviesContext} from "../context/Context.jsx";
-import Recommendations from "../components/Recommendations.jsx";
-import Upcoming from "../components/Upcoming.jsx";
+import TVShowsContainer from "../components/TVShowsContainer.jsx";
+import MoviesContainer from "../components/MoviesContainer.jsx";
 import Footer from "../components/Footer.jsx";
 
 const Home = () => {
@@ -61,9 +61,9 @@ const Home = () => {
             )}
 
         </div>
-            <Recommendations heading={navLinks[2]} movies={movies}/>
+            <TVShowsContainer heading={navLinks[2]} movies={movies}/>
             <div className='bg-theme-1'>
-                <Upcoming heading={navLinks[1]} movies={upComing}/>
+                <MoviesContainer heading={navLinks[1]} movies={upComing}/>
             </div>
             <Footer/>
         </>

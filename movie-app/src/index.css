@@ -291,12 +291,19 @@ footer p{
 }
 
 .tv-show .hro {
-    grid-column: 1 / 9;
+    grid-column: 1 / 10;
     grid-row: 4 / 8;
 }
 
 
 .fs-85 {
     font-size: 0.85rem;
+}
+
+footer {
+    background: #780206; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #780206, #780206); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #780206, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 

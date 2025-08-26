@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import UpcomingCard from "./UpcomingCard.jsx";
+import UpcomingCard from "./MoviesCard.jsx";
 import More from "./More.jsx";
 import {MoviesContext} from "../context/Context.jsx";
 
-function Upcoming({heading, movies}) {
+function MoviesContainer({heading, movies}) {
 
     const {handleMoreMovies, handleShowMovieDetails} = useContext(MoviesContext);
     return (
@@ -29,4 +29,4 @@ function Upcoming({heading, movies}) {
     );
 }
 
-export default Upcoming;
+export default MoviesContainer;

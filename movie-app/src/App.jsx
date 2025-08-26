@@ -50,6 +50,7 @@ function App() {
     }
 
     const handleShowMovieDetails = (movie) => {
+        console.log(movie)
         setIsMovieDetails(true)
         setMovie(movie);
     }

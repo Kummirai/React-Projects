@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import Header from "../components/Header.jsx";
-import Upcoming from "../components/Upcoming.jsx";
+import MoviesContainer from "../components/MoviesContainer.jsx";
 import Pagination from "../components/Pagination.jsx";
 import {MoviesContext} from "../context/Context.jsx";
 import Footer from "../components/Footer.jsx";
@@ -100,7 +100,7 @@ function Movies({movieDesc}) {
                             className="text-warning fw-bold display-6">{isMovieDetails ? movieDesc?.title : movie.title}</span>
                         </h2>
                     </div>
-                    <Upcoming
+                    <MoviesContainer
                         movies={similarMovies}
                     />
                     <Pagination pages={pages}/>
@@ -111,7 +111,7 @@ function Movies({movieDesc}) {
                 :
                 <div className="position-relative">
                     <div className="movie-theme-top position-absolute w-100 h-25 z-n1"></div>
-                    <Upcoming heading={heading} movies={upComing}/>
+                    <MoviesContainer heading={heading} movies={upComing}/>
                     <Pagination/>
                 </div>
             }
