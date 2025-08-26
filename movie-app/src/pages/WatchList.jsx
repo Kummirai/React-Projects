@@ -19,7 +19,7 @@ function WatchList() {
                 <div className="hero tv-show z-2">
                     <Header/>
                     <div className={"watch-list-heading mt-5 text-warning border-bottom mx-5"}>
-                        <h2 className={"pb-3"}>Your Watch List</h2>
+                        <h2 className={"pb-3 display-6 fs-4 fw-bold"}>Your Watch List</h2>
                     </div>
                     <div className="container py-5 watch-list-container">
                         {watchList.map((watch) => (

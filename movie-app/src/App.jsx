@@ -44,6 +44,7 @@ function App() {
     const [isSimilarMovies, setIsSimilarMovies] = useState(false);
     const [similarMovies, setSimilarMovies] = useState([]);
     const [watchList, setWatchList] = useState([]);
+    const [movieStatus, setMovieStatus] = useState("Mark As Watched");
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -75,6 +76,14 @@ function App() {
         setIsMovieDetails(false)
         localStorage.setItem("watchList", JSON.stringify(watchList))
         alert("Successfully updated watchlist")
+    }
+
+    const handleMarkAsWatched = (id) => {
+        console.log(id)
+    }
+
+    const handleDeleteFromWatchList = (id) => {
+        console.log(id)
     }
 
     useEffect(() => {
@@ -250,6 +259,9 @@ function App() {
         watchList: watchList,
         setWatchList: setWatchList,
         saveToWatchlist: saveToWatchlist,
+        handleMarkAsWatched: handleMarkAsWatched,
+        handleDeleteFromWatchList: handleDeleteFromWatchList,
+        movieStatus: movieStatus,
     }
 
   return (
