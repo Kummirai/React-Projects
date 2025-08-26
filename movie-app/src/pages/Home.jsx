@@ -1,7 +1,7 @@
 import Header from "../components/Header.jsx";
 import HomeMovieCard from "../components/HomeMovieCard.jsx";
 import MoviesDetails from "../components/MoviesDetails.jsx";
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import {MoviesContext} from "../context/Context.jsx";
 import TVShowsContainer from "../components/TVShowsContainer.jsx";
 import MoviesContainer from "../components/MoviesContainer.jsx";
@@ -17,7 +17,14 @@ const Home = () => {
         bgTheme,
         movieDetailTheme,
         isMovieDetails,
+        setTabs,
+        setIsMovieDetails,
     } = useContext(MoviesContext);
+
+    useEffect(() => {
+        setTabs("Home");
+        setIsMovieDetails(false);
+    }, []);
 
     return (
         <>
