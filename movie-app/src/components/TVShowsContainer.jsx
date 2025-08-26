@@ -8,7 +8,7 @@ function TVShowsContainer({heading, movies}) {
     const {handleShowMovieDetails, isMovieDetails} = useContext(MoviesContext);
 
     return (
-        <div className={isMovieDetails ? "" : " "}>
+        <div className={isMovieDetails ? "z-3" : "z-3"}>
             <div className="d-flex flex-column ">
                 <h2 className={isMovieDetails ? "m-5 text-transparent": "gradient-text fw-bold  display-6 fs-6 pb-2 text-start m-5 text-white border-bottom "}>
                     {heading}

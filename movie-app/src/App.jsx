@@ -23,7 +23,7 @@ function App() {
     const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [movie, setMovie] = useState(null);
+    const [movie, setMovie] = useState({});
     const [movies, setMovies] = useState([]);
     const randomIndex = Math.round(Math.random() * movies.length);
     const [isMovieDetails, setIsMovieDetails] = useState(false);
@@ -122,6 +122,7 @@ function App() {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
+                console.log(json)
                 const randomShows = [];
                 const numToSelect = json.results.length;
 

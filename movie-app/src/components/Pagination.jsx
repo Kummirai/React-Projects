@@ -7,7 +7,7 @@ function Pagination() {
 
     return (
 
-            <div className="d-flex align-items-center justify-content-between col-3 mb-5 mx-auto px-3 rounded-2">
+        <div className="d-flex align-items-center justify-content-between z-3 col-3 mb-5 mx-auto px-3 rounded-2">
                 <p onClick={() => handlePreviousPage()} className="mb-0"><i
                     className="fas fa-angle-double-left btn btn-outline-light"></i></p>
                 <div className="text-white d-flex justify-content-around p-2">

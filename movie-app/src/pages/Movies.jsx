@@ -54,7 +54,7 @@ function Movies({movieDesc}) {
                     :
                     ""
                 }
-                <div className={"col-sm-12 flex-grow-1 p-5 pb-2 z-2"}>
+                <div className={"col-sm-12 flex-grow-1 p-5 pb-2 z-3"}>
                 <Header
                     navLinks={navLinks}
                     handleTabSelection={handleTabSelection}

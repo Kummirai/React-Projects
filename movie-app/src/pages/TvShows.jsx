@@ -8,16 +8,19 @@ import Footer from "../components/Footer.jsx";
 
 function TvShows() {
 
-    const {movies, isMovieDetails, movieDetailTheme} = useContext(MoviesContext);
+    const {movies, isMovieDetails, movieDetailTheme, bgTheme} = useContext(MoviesContext);
     return (
         <>
-            <div className="container-fluid" style={isMovieDetails ? movieDetailTheme : null}>
-                <div className="hero tv-show">
+            <div className="container-fluid gx-0 position-relative" style={isMovieDetails ? movieDetailTheme : bgTheme}>
+                <div className="movie-theme-top position-absolute w-100 z-1 h-100"></div>
+                <div className="hero tv-show z-2">
                     <Header/>
                     <Hero/>
                 </div>
-                <TVShowsContainer movies={movies} heading="TV Shows"/>
-                <Pagination/>
+                <div className="z-2 position-relative">
+                    <TVShowsContainer movies={movies} heading="TV Shows"/>
+                    <Pagination/>
+                </div>
             </div>
             <Footer/>
         </>
