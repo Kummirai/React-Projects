@@ -46,6 +46,7 @@ function App() {
     const [watchList, setWatchList] = useState([]);
     const [watchedMovies, setWatchedMovies] = useState([]);
     const [exists, setExists] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -78,12 +79,16 @@ function App() {
             setExists(true)
             setTimeout(() => {
                 setExists(false)
-            }, 2000)
+            }, 3000)
         } else {
             newWatchlist.splice(1, 0, movie)
-            setIsMovieDetails(false)
+            // setIsMovieDetails(false)
             localStorage.setItem("watchList", JSON.stringify(newWatchlist))
             setWatchList(newWatchlist)
+            setSuccess(true)
+            setTimeout(() => {
+                setSuccess(false)
+            }, 3000)
         }
     }
 
@@ -294,7 +299,8 @@ function App() {
         handleMarkAsWatched: handleMarkAsWatched,
         handleDeleteFromWatchList: handleDeleteFromWatchList,
         watchedMovies: watchedMovies,
-        exists: exists
+        exists: exists,
+        success: success
     }
 
   return (
