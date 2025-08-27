@@ -5,11 +5,12 @@ import TVShowsContainer from "../components/TVShowsContainer";
 import {MoviesContext} from "../context/Context.jsx";
 import Pagination from "../components/Pagination.jsx";
 import Footer from "../components/Footer.jsx";
+import Alert from "../components/Alert.jsx";
 
 function TvShows() {
 
 
-    const {setTabs, setIsMovieDetails} = useContext(MoviesContext);
+    const {setTabs, setIsMovieDetails, tabs} = useContext(MoviesContext);
 
     useEffect(() => {
         setTabs("TV Shows");
@@ -19,6 +20,7 @@ function TvShows() {
     const {movies, isMovieDetails, movieDetailTheme, bgTheme} = useContext(MoviesContext);
     return (
         <>
+            <Alert tabs={tabs}/>
             <div className="container-fluid gx-0 position-relative" style={isMovieDetails ? movieDetailTheme : bgTheme}>
                 <div className="movie-theme-top position-absolute w-100 z-1 h-100"></div>
                 <div className="hero tv-show z-2">

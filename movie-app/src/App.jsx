@@ -45,6 +45,7 @@ function App() {
     const [similarMovies, setSimilarMovies] = useState([]);
     const [watchList, setWatchList] = useState([]);
     const [watchedMovies, setWatchedMovies] = useState([]);
+    const [exists, setExists] = useState(false);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -72,8 +73,12 @@ function App() {
 
     const saveToWatchlist = (movie) => {
         const newWatchlist = [...watchList]
-        if (newWatchlist.includes(movie)) {
-            alert("Movie already exist!");
+        const checkIfExists = newWatchlist.filter(item => item.id === movie.id)
+        if (checkIfExists.length > 0) {
+            setExists(true)
+            setTimeout(() => {
+                setExists(false)
+            }, 2000)
         } else {
             newWatchlist.splice(1, 0, movie)
             setIsMovieDetails(false)
@@ -289,6 +294,7 @@ function App() {
         handleMarkAsWatched: handleMarkAsWatched,
         handleDeleteFromWatchList: handleDeleteFromWatchList,
         watchedMovies: watchedMovies,
+        exists: exists
     }
 
   return (
