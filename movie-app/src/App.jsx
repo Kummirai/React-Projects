@@ -82,7 +82,6 @@ function App() {
             }, 3000)
         } else {
             newWatchlist.splice(1, 0, movie)
-            // setIsMovieDetails(false)
             localStorage.setItem("watchList", JSON.stringify(newWatchlist))
             setWatchList(newWatchlist)
             setSuccess(true)
@@ -107,9 +106,13 @@ function App() {
         setWatchList(newWatchList)
 
         const updateWatchedList = [...watchedMovies]
-        updateWatchedList.splice(updateWatchedList.indexOf(id), 1)
-        localStorage.setItem("watchedMovies", JSON.stringify(updateWatchedList))
-        setWatchedMovies(updateWatchedList)
+        const itemToDelete = updateWatchedList.filter(item => item === id)
+        if (itemToDelete.length > 0) {
+            updateWatchedList.splice(updateWatchedList.indexOf(id), 1)
+            localStorage.setItem("watchedMovies", JSON.stringify(updateWatchedList))
+            setWatchedMovies(updateWatchedList)
+        }
+
     }
 
     useEffect(() => {
