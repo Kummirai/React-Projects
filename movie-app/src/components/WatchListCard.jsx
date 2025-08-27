@@ -11,10 +11,10 @@ function WatchListCard({watch}) {
                 <div className={"watch-image-container"}>
                     <img src={`https://image.tmdb.org/t/p/w342/${watch?.poster_path}`} alt=""/>
                 </div>
-                <h2 className={"fs-01"}>{watch.name || watch.title}</h2>
+                <h2 className={"fs-01 line-clamp-1"}>{watch.name || watch.title}</h2>
                 <div className={"d-flex align-items-center justify-content-between text-white"}>
                     <button onClick={() => handleMarkAsWatched(watch.id)}
-                            className={"btn btn-warning fs-65 fw-bold"}>{watchedMovies.find(id => id === watch.id) ? "Watched" : "Mark As Watched"}</button>
+                            className={watchedMovies.find(id => id === watch.id) ? "btn btn-success fs-65 fw-bold" : "btn btn-warning fs-65 fw-bold"}>{watchedMovies.find(id => id === watch.id) ? "Watched" : "Mark As Watched"}</button>
                     <button onClick={() => handleDeleteFromWatchList(watch.id)} className={"btn btn-danger fs-75"}><i
                         className={"fas fa-trash"}></i></button>
                 </div>

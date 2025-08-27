@@ -71,11 +71,15 @@ function App() {
     }
 
     const saveToWatchlist = (movie) => {
-        watchList.push(movie)
-        setMovie(watchList)
-        setIsMovieDetails(false)
-        localStorage.setItem("watchList", JSON.stringify(watchList))
-        alert("Successfully updated watchlist")
+        const newWatchlist = [...watchList]
+        if (newWatchlist.includes(movie)) {
+            alert("Movie already exist!");
+        } else {
+            newWatchlist.splice(1, 0, movie)
+            setIsMovieDetails(false)
+            localStorage.setItem("watchList", JSON.stringify(newWatchlist))
+            setWatchList(newWatchlist)
+        }
     }
 
     const handleMarkAsWatched = (id) => {

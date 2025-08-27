@@ -4,7 +4,7 @@ import {MoviesContext} from "../context/Context.jsx";
 
 const Header = () => {
 
-    const {tabs} = useContext(MoviesContext);
+    const {tabs, watchList} = useContext(MoviesContext);
 
     return (
         <>
@@ -23,7 +23,8 @@ const Header = () => {
                             to="/tvshows">TV Shows</Link>
                         <Link
                             className={tabs === "Watch List" ? "border-bottom text-decoration-none text-white fs-85" : "text-decoration-none text-white fs-85"}
-                            to="/watchlist">Watch List</Link>
+                            to="/watchlist">Watch List<span
+                            className={"fw-bold rounded-2 text-warning mx-1"}>({watchList.length})</span></Link>
                     </div>
                 </nav>
             </header>
