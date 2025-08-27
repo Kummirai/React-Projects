@@ -10,7 +10,9 @@ import Alert from "../components/Alert.jsx";
 function TvShows() {
 
 
-    const {setTabs, setIsMovieDetails, tabs} = useContext(MoviesContext);
+    const {setTabs, setIsMovieDetails, tabs, setGoToSearchPage} = useContext(MoviesContext);
+
+    setGoToSearchPage(false)
 
     useEffect(() => {
         setTabs("TV Shows");

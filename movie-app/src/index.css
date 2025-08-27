@@ -380,10 +380,12 @@ footer {
 /*Watchlist styles */
 .watch-list-container {
     grid-column: 1/-1;
+    grid-row: 5 / -1;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     row-gap: 2.5rem;
     column-gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .watch-card {
@@ -407,6 +409,7 @@ footer {
 
 .watch-list-heading {
     grid-column: 1/-1;
+    grid-row: 2  / 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -415,6 +418,16 @@ footer {
 .alert-position {
     top: 25%;
     transform: translate(50%, -50%);
+}
+
+/*Search page styliong*/
+
+.search-input {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

@@ -49,10 +49,15 @@ function App() {
     const [exists, setExists] = useState(false);
     const [success, setSuccess] = useState(false);
     const [search, setSearch] = useState("");
+    const [fetchSearchedMovies, setFetchSearchedMovies] = useState("");
+    const [goToSearchPage, setGoToSearchPage] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(search);
+        setFetchSearchedMovies(search)
+        setSearch("")
+        setGoToSearchPage(true)
     }
 
     const handlePageChange = page => {
@@ -121,6 +126,25 @@ function App() {
         }
 
     }
+
+    useEffect(() => {
+        const url = `https://api.themoviedb.org/3/search/movie?query=${fetchSearchedMovies}&include_adult=false&language=en-US&page=1`;
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: API_KEY,
+            }
+        };
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+                setSearchResults(json.results)
+            })
+            .catch(err => console.error(err));
+    }, [fetchSearchedMovies]);
 
     useEffect(() => {
         const storedWatchedMovies = localStorage.getItem("watchedMovies");
@@ -311,7 +335,10 @@ function App() {
         success: success,
         handleSubmit: handleSubmit,
         search: search,
-        setSearch: setSearch
+        setSearch: setSearch,
+        goToSearchPage: goToSearchPage,
+        searchResults: searchResults,
+        setGoToSearchPage: setGoToSearchPage,
     }
 
   return (
@@ -322,6 +349,7 @@ function App() {
                   <Route path="/movies" element={<Movies heading="Movies" movieDesc={movie}/>}/>
                   <Route path="/tvshows" element={<TvShows/>}/>
                   <Route path="watchlist" element={<WatchList/>}/>
+                  <Route path="/search" element={<Search/>}/>
               </Routes>
           </MoviesContext.Provider>
       </>

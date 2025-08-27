@@ -16,8 +16,11 @@ function Movies() {
         isMovieDetails,
         movieDetailTheme,
         moviesBackground,
-        tabs
+        tabs,
+        setGoToSearchPage
     } = useContext(MoviesContext);
+
+    setGoToSearchPage(false)
 
     useEffect(() => {
         setTabs("Movies");

@@ -6,7 +6,9 @@ import WatchListCard from "../components/WatchListCard.jsx";
 
 function WatchList() {
 
-    const {setTabs, setIsMovieDetails, watchList} = useContext(MoviesContext);
+    const {setTabs, setIsMovieDetails, watchList, setGoToSearchPage} = useContext(MoviesContext);
+
+    setGoToSearchPage(false)
 
     useEffect(() => {
         setTabs("Watch List");
