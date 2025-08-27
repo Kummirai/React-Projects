@@ -6,8 +6,6 @@ function MoviesDetails({movie}) {
 
     const months =["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
 
-    console.log(movie)
-
     return (
         <div className="container-fluid d-flex">
             <div className="col-sm-12 flex-grow-1 p-5 pb-2 d-flex flex-column justify-content-start z-2">

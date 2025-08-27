@@ -24,6 +24,7 @@ function MoviesContainer({heading, movies}) {
             <More
                 heading={heading}
                 handleMoreMovies={handleMoreMovies}
+                url={"/search"}
             />
         </div>
     );

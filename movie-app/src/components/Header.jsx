@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput.jsx";
 
 const Header = () => {
 
-    const {tabs, watchList, goToSearchPage} = useContext(MoviesContext);
+    const {tabs, watchList} = useContext(MoviesContext);
 
     return (
         <>
@@ -31,9 +31,6 @@ const Header = () => {
                             to="/search">Search</Link>
                     </div>
 
-                </nav>
-                <nav className={!goToSearchPage ? "navbar navbar-dark" : "d-none"}>
-                    <SearchInput/>
                 </nav>
             </header>
         </>
