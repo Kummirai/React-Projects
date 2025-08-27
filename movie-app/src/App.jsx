@@ -44,7 +44,7 @@ function App() {
     const [isSimilarMovies, setIsSimilarMovies] = useState(false);
     const [similarMovies, setSimilarMovies] = useState([]);
     const [watchList, setWatchList] = useState([]);
-    const [movieStatus, setMovieStatus] = useState("Mark As Watched");
+    const [watchedMovies, setWatchedMovies] = useState([]);
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -79,12 +79,35 @@ function App() {
     }
 
     const handleMarkAsWatched = (id) => {
-        console.log(id)
+        const newWatchedMovies = [...watchedMovies];
+        newWatchedMovies.splice(1, 0, id);
+        localStorage.setItem("watchedMovies", JSON.stringify(newWatchedMovies));
+        setWatchedMovies(newWatchedMovies)
     }
 
     const handleDeleteFromWatchList = (id) => {
-        console.log(id)
+        const newWatchList = [...watchList];
+        const movieToDelete = newWatchList.find(movie => movie.id === id)
+        newWatchList.splice(newWatchList.indexOf(movieToDelete), 1);
+        localStorage.setItem("watchList", JSON.stringify(newWatchList))
+        setWatchList(newWatchList)
+
+        const updateWatchedList = [...watchedMovies]
+        updateWatchedList.splice(updateWatchedList.indexOf(id), 1)
+        localStorage.setItem("watchedMovies", JSON.stringify(updateWatchedList))
+        setWatchedMovies(updateWatchedList)
     }
+
+    useEffect(() => {
+        const storedWatchedMovies = localStorage.getItem("watchedMovies");
+        if (storedWatchedMovies) {
+            setWatchedMovies(JSON.parse(storedWatchedMovies));
+            console.log(storedWatchedMovies);
+        } else {
+            setWatchedMovies([]);
+        }
+
+    }, [])
 
     useEffect(() => {
         const storedWatchlist = localStorage.getItem('watchList'); // 'watchList' is the key
@@ -261,7 +284,7 @@ function App() {
         saveToWatchlist: saveToWatchlist,
         handleMarkAsWatched: handleMarkAsWatched,
         handleDeleteFromWatchList: handleDeleteFromWatchList,
-        movieStatus: movieStatus,
+        watchedMovies: watchedMovies,
     }
 
   return (

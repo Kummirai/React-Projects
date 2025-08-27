@@ -3,7 +3,7 @@ import {useContext} from "react";
 
 function WatchListCard({watch}) {
 
-    const {handleDeleteFromWatchList, handleMarkAsWatched, movieStatus} = useContext(MoviesContext);
+    const {handleDeleteFromWatchList, handleMarkAsWatched, watchedMovies} = useContext(MoviesContext);
 
     return (
         <>
@@ -14,7 +14,7 @@ function WatchListCard({watch}) {
                 <h2 className={"fs-01"}>{watch.name || watch.title}</h2>
                 <div className={"d-flex align-items-center justify-content-between text-white"}>
                     <button onClick={() => handleMarkAsWatched(watch.id)}
-                            className={"btn btn-warning fs-65 fw-bold"}>{movieStatus}</button>
+                            className={"btn btn-warning fs-65 fw-bold"}>{watchedMovies.find(id => id === watch.id) ? "Watched" : "Mark As Watched"}</button>
                     <button onClick={() => handleDeleteFromWatchList(watch.id)} className={"btn btn-danger fs-75"}><i
                         className={"fas fa-trash"}></i></button>
                 </div>
