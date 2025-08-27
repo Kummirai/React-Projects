@@ -5,6 +5,7 @@ import {MoviesContext} from "./context/Context.jsx";
 import {Routes, Route} from "react-router-dom";
 import TvShows from "./pages/TvShows.jsx";
 import WatchList from "./pages/WatchList.jsx";
+import Search from "./pages/Search.jsx";
 
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
     const [watchedMovies, setWatchedMovies] = useState([]);
     const [exists, setExists] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [search, setSearch] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(search);
+    }
 
     const handlePageChange = page => {
         setCurrentPage(page);
@@ -119,7 +126,6 @@ function App() {
         const storedWatchedMovies = localStorage.getItem("watchedMovies");
         if (storedWatchedMovies) {
             setWatchedMovies(JSON.parse(storedWatchedMovies));
-            console.log(storedWatchedMovies);
         } else {
             setWatchedMovies([]);
         }
@@ -191,7 +197,6 @@ function App() {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                console.log(json)
                 const randomShows = [];
                 const numToSelect = json.results.length;
 
@@ -303,7 +308,10 @@ function App() {
         handleDeleteFromWatchList: handleDeleteFromWatchList,
         watchedMovies: watchedMovies,
         exists: exists,
-        success: success
+        success: success,
+        handleSubmit: handleSubmit,
+        search: search,
+        setSearch: setSearch
     }
 
   return (
