@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import Header from "../components/Header.jsx";
 import {MoviesContext} from "../context/Context.jsx";
 import WatchListCard from "../components/WatchListCard.jsx";
+import Tabs from "../components/Tabs.jsx";
 
 
 function WatchList() {
@@ -22,7 +23,9 @@ function WatchList() {
                     <Header/>
                     <div className={"watch-list-heading mt-5 text-warning border-bottom mx-5"}>
                         <h2 className={"pb-3 display-6 fs-4 fw-bold"}>Your Watch List</h2>
+                        <Tabs/>
                     </div>
+
                     <div className="container py-5 watch-list-container">
                         {watchList.map((watch) => (
                             <WatchListCard watch={watch} key={watch.id}/>

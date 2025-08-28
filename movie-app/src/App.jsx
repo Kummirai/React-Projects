@@ -12,6 +12,7 @@ function App() {
 
     const pages = [1, 2, 3, 4];
     const navLinks = ["Home", "Movies", "TV Shows", "Trending", "Genre", "Top Rated", "Watchlist"];
+    const watchListTabs = ["All", "Not Yet Watched", "Watched"]
     const socials = ["fab fa-github", "fab fa-instagram", "fab fa-linkedin", "fab fa-twitter", "fab fa-facebook" ];
     const backgrounds = [
         "https://image.tmdb.org/t/p/original//1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
@@ -52,6 +53,43 @@ function App() {
     const [fetchSearchedMovies, setFetchSearchedMovies] = useState("");
     const [goToSearchPage, setGoToSearchPage] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
+    const [currentWatchListTab, setCurrentWatchListTab] = useState("");
+
+    const handleTabSelection = (tab) => {
+        if (tab === "All") {
+            const newFetchWatchlist = JSON.parse(localStorage.getItem("watchList"))
+            if (newFetchWatchlist) {
+                setWatchList(newFetchWatchlist)
+            }
+        } else if (tab === "Not Yet Watched") {
+            const newFetchWatchlist = JSON.parse(localStorage.getItem("watchList"))
+            console.log(newFetchWatchlist);
+            if (newFetchWatchlist) {
+                const unWatchedShows = []
+                newFetchWatchlist.filter(watch => {
+                    const filteredWatchList = watchedMovies.find((id) => watch.id === id);
+                    if (!filteredWatchList) {
+                        unWatchedShows.splice(1, 0, watch);
+                    }
+                })
+                setWatchList(unWatchedShows)
+                saveToWatchlist()
+            }
+        } else if (tab === "Watched") {
+            const newFetchWatchlist = JSON.parse(localStorage.getItem("watchList"))
+            if (newFetchWatchlist) {
+                const watchedShows = []
+                newFetchWatchlist.filter(watch => {
+                    const filteredWatchList = watchedMovies.find((id) => watch.id === id);
+                    if (filteredWatchList) {
+                        watchedShows.splice(1, 0, watch);
+                    }
+                })
+                console.log(watchedShows)
+                setWatchList(watchedShows)
+            }
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -339,6 +377,9 @@ function App() {
         goToSearchPage: goToSearchPage,
         searchResults: searchResults,
         setGoToSearchPage: setGoToSearchPage,
+        watchListTabs: watchListTabs,
+        handleTabSelection: handleTabSelection,
+        currentWatchListTab: currentWatchListTab,
     }
 
   return (
