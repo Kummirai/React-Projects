@@ -109,7 +109,6 @@ function App() {
     }
 
     const handleShowMovieDetails = (movie) => {
-        console.log(movie)
         setIsMovieDetails(true)
         setMovie(movie);
     }
@@ -120,7 +119,7 @@ function App() {
     }
 
     const saveToWatchlist = (movie) => {
-        const newWatchlist = [...watchList]
+        const newWatchlist = JSON.parse(localStorage.getItem("watchList"))
         const checkIfExists = newWatchlist.filter(item => item.id === movie.id)
         if (checkIfExists.length > 0) {
             setExists(true)
@@ -144,7 +143,7 @@ function App() {
         if (!checkIfInList) {
             newWatchedMovies.splice(1, 0, id);
             localStorage.setItem("watchedMovies", JSON.stringify(newWatchedMovies));
-            setWatchedMovies(JSON.parse(localStorage.getItem("watchedMovies")));
+            setWatchedMovies(newWatchedMovies);
         }
     }
 
@@ -178,7 +177,6 @@ function App() {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                console.log(json)
                 setSearchResults(json.results)
             })
             .catch(err => console.error(err));
