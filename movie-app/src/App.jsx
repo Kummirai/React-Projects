@@ -73,7 +73,6 @@ function App() {
                     }
                 })
                 setWatchList(unWatchedShows)
-                saveToWatchlist()
             }
         } else if (tab === "Watched") {
             const newFetchWatchlist = JSON.parse(localStorage.getItem("watchList"))
@@ -143,9 +142,12 @@ function App() {
 
     const handleMarkAsWatched = (id) => {
         const newWatchedMovies = [...watchedMovies];
-        newWatchedMovies.splice(1, 0, id);
-        localStorage.setItem("watchedMovies", JSON.stringify(newWatchedMovies));
-        setWatchedMovies(newWatchedMovies)
+        const checkIfInList = newWatchedMovies.find(movieId => movieId === id)
+        if (!checkIfInList) {
+            newWatchedMovies.splice(1, 0, id);
+            localStorage.setItem("watchedMovies", JSON.stringify(newWatchedMovies));
+            setWatchedMovies(JSON.parse(localStorage.getItem("watchedMovies")));
+        }
     }
 
     const handleDeleteFromWatchList = (id) => {

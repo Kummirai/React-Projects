@@ -7,12 +7,13 @@ import Tabs from "../components/Tabs.jsx";
 
 function WatchList() {
 
-    const {setTabs, setIsMovieDetails, watchList, setGoToSearchPage} = useContext(MoviesContext);
+    const {setTabs, setIsMovieDetails, watchList, setGoToSearchPage, watchedMovies} = useContext(MoviesContext);
 
     setGoToSearchPage(false)
 
     useEffect(() => {
         setTabs("Watch List");
+        console.log("I ran!")
         setIsMovieDetails(false);
     }, []);
 
