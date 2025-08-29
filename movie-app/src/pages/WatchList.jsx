@@ -15,7 +15,7 @@ function WatchList() {
         setTabs("Watch List");
         console.log("I ran!")
         setIsMovieDetails(false);
-    }, []);
+    }, [watchedMovies]);
 
     return (
         <>

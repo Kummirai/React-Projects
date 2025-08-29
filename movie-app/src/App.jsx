@@ -63,7 +63,6 @@ function App() {
             }
         } else if (tab === "Not Yet Watched") {
             const newFetchWatchlist = JSON.parse(localStorage.getItem("watchList"))
-            console.log(newFetchWatchlist);
             if (newFetchWatchlist) {
                 const unWatchedShows = []
                 newFetchWatchlist.filter(watch => {
@@ -84,7 +83,6 @@ function App() {
                         watchedShows.splice(1, 0, watch);
                     }
                 })
-                console.log(watchedShows)
                 setWatchList(watchedShows)
             }
         }
@@ -142,7 +140,7 @@ function App() {
 
     const handleMarkAsWatched = (id) => {
         const newWatchedMovies = [...watchedMovies];
-        const checkIfInList = newWatchedMovies.find(movieId => movieId === id)
+        const checkIfInList = newWatchedMovies.includes(id)
         if (!checkIfInList) {
             newWatchedMovies.splice(1, 0, id);
             localStorage.setItem("watchedMovies", JSON.stringify(newWatchedMovies));
@@ -151,15 +149,15 @@ function App() {
     }
 
     const handleDeleteFromWatchList = (id) => {
-        const newWatchList = [...watchList];
+        const newWatchList = JSON.parse(localStorage.getItem("watchList"));
         const movieToDelete = newWatchList.find(movie => movie.id === id)
         newWatchList.splice(newWatchList.indexOf(movieToDelete), 1);
         localStorage.setItem("watchList", JSON.stringify(newWatchList))
         setWatchList(newWatchList)
 
-        const updateWatchedList = [...watchedMovies]
-        const itemToDelete = updateWatchedList.filter(item => item === id)
-        if (itemToDelete.length > 0) {
+        const updateWatchedList = JSON.parse(localStorage.getItem("watchedMovies"))
+        const itemToDelete = updateWatchedList.includes(id)
+        if (itemToDelete) {
             updateWatchedList.splice(updateWatchedList.indexOf(id), 1)
             localStorage.setItem("watchedMovies", JSON.stringify(updateWatchedList))
             setWatchedMovies(updateWatchedList)
