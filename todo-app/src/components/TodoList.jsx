@@ -16,7 +16,7 @@ function TodoList() {
                 :
                 <div>
                 {todos.map((todo, index) => (
-                    <TodoItem todo={todo} key={index} />
+                    <TodoItem todo={todo} index={index} key={index} />
                 ))}
             </div> }
         </div>
