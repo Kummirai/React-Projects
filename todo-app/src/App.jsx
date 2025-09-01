@@ -9,7 +9,6 @@ function App() {
     const [todos, setTodos] = useState([]);
 
     const [task, setTask] = useState("");
-    const [isDone, setIsDone] = useState(false);
 
     const handleChange = (e) => {
         setTask(e.target.value);
@@ -19,15 +18,25 @@ function App() {
         e.preventDefault();
         if(task) {
             setTodos((prevTodos)=>{
-                return [...prevTodos, task]
+                return [...prevTodos, {task: task, isDone: false}]
             })
             setTask("")
         }
     }
 
     const handleCheckBox = (id) => {
-        console.log(id)
-  }
+        const selectedTodo = todos.filter(todo => todos.indexOf(todo) === id)
+        if(selectedTodo[0]['isDone'] === false) {
+            todos[id] = {...selectedTodo[0], isDone: true};
+            const updatedTodos = [...todos];
+            setTodos(updatedTodos);
+        } else {
+            todos[id] = {...selectedTodo[0], isDone: false};
+            const updatedTodos = [...todos];
+            setTodos(updatedTodos);
+        }
+
+    }
 
   const handleDelete = (index) => {
         const upDatedTodos = [...todos];
@@ -41,7 +50,6 @@ function App() {
         task,
         handleSubmit,
         handleCheckBox,
-        isDone,
         handleDelete
     }
 
