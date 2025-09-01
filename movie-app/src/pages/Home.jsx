@@ -8,6 +8,7 @@ import MoviesContainer from "../components/MoviesContainer.jsx";
 import Footer from "../components/Footer.jsx";
 import Hero from "../components/Hero.jsx";
 import Pagination from "../components/Pagination.jsx";
+import HomeMovieSection from "../components/HomeMovieSection.jsx";
 
 const Home = () => {
 
@@ -28,14 +29,15 @@ const Home = () => {
 
     return (
         <>
-            <div className="container-fluid gx-0 position-relative" style={isMovieDetails ? movieDetailTheme : bgTheme}>
+            <div className="container-fluid gx-0 position-relative">
                 <div className="movie-theme-top position-absolute w-100 z-1 h-100"></div>
-                <div className="hero tv-show z-2">
+                <div className="hero tv-show z-2" style={isMovieDetails ? movieDetailTheme : bgTheme}>
                     <Header/>
                     <Hero/>
                 </div>
                 <div className="z-2 position-relative">
                     <TVShowsContainer movies={movies} heading="TV Shows"/>
+                    <HomeMovieSection/>
                     <MoviesContainer movies={upComing} heading="Movies"/>
                 </div>
             </div>

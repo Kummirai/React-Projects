@@ -434,3 +434,25 @@ footer {
     grid-column: 1 / -1;
 }
 
+/*Home movie section styles*/
+.home-movie-section {
+    height: 80vh;
+}
+
+.home-movie-detail {
+    place-content: center;
+}
+
+.home-movie-card {
+    width: 240px;
+    height: 150px;
+}
+
+.home-movie-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: top center;
+}
+
