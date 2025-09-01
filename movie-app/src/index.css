@@ -121,8 +121,24 @@ header{
 
 }
 
-.recommendation-card{
-    min-height: 300px;
+.upcoming {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+.popular-movies {
+    min-height: 80vh;
+}
+
+
+/*.recommendation-img-container{*/
+/*    height: 250px;*/
+/*}*/
+
+.recommendation-img-container img {
+    height: 100%;
 }
 
 .rating-title p{
@@ -192,11 +208,7 @@ header{
     font-size: 0.85rem;
 }
 
-.upcoming{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
-}
+
 
 .more:hover{
     cursor: pointer;
@@ -455,4 +467,6 @@ footer {
     object-fit: cover;
     object-position: top center;
 }
+
+
 

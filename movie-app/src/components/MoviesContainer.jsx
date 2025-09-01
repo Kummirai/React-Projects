@@ -7,11 +7,11 @@ function MoviesContainer({heading, movies}) {
 
     const {handleMoreMovies, handleShowMovieDetails} = useContext(MoviesContext);
     return (
-        <div className="mb-5">
+        <div className="mb-5 popular-movies">
             <div className="d-flex align-items-center justify-content-start p-5 pb-0">
-                <h2 className="gradient-text text-white fw-bold mb-0 d-block w-100 border-bottom display-6 fs-6 pb-2 mx-sm-3">{heading}</h2>
+                <h2 className="gradient-text text-white fw-bold mb-0 d-block w-100 display-6 fs-6 px-5 pb-2 mx-sm-3">{heading}</h2>
             </div>
-            <div className='container upcoming mt-5 px-5'>
+            <div className='container col-sm-10 upcoming mt-2'>
                 {movies.map((movie, index) => (
                     index < 10 ?
                     <UpcomingCard

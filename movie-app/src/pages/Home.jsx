@@ -39,7 +39,7 @@ const Home = () => {
                 <div className="z-2 position-relative">
                     <TVShowsContainer movies={movies} heading="TV Shows"/>
                     <HomeMovieSection/>
-                    <MoviesContainer movies={upComing} heading="Movies"/>
+                    <MoviesContainer movies={upComing} heading="Popular Movies"/>
                     <HomeSeriessSection/>
                 </div>
             </div>
