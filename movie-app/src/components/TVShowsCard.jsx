@@ -2,6 +2,8 @@ import React from 'react';
 
 function TVShowsCard({movie, handleShowMovieDetails}) {
 
+    console.log(movie)
+
     return (
         <a href="#" onClick={() => handleShowMovieDetails(movie)} className="text-decoration-none tv-card bx-shadow">
             <div className='d-flex flex-column justify-content-between recommendation-card rounded-3'>
