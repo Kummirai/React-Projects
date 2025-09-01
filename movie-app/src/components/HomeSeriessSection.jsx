@@ -2,9 +2,9 @@ import React from 'react';
 
 function HomeMovieSection() {
     return (
-        <div className={"container-fluid home-movie-section bg-secondary"}
+        <div className={"container-fluid home-movie-section"}
              style={{
-                 background: `url("https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/0c730836-253b-4338-a3d1-a6a44a3384e0/19d57a2c-4291-48ba-bab2-c8fdc4ba834d?host=wbd-images.prod-vod.h264.io&partner=beamcom")`,
+                 background: `url("https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/05/Flash-Season-5-Nora-XS.jpg")`,
                  backgroundPosition: "top center",
                  backgroundSize: "cover",
                  backgroundPositionX: "center center",
@@ -13,7 +13,7 @@ function HomeMovieSection() {
             <div className={"row h-100"}>
                 <div className={"p-5 col-sm-8 home-movie-detail"}>
                     <div className={"w-50 text-white text-blur"}>
-                        <h2 className={"display-4 fw-bold"}>Black Adam</h2>
+                        <h2 className={"display-4 fw-bold"}>The Flash</h2>
                         <div className="d-flex align-items-center justify-content-start my-3">
                             <p className={"text-warning"}>
                                 <i className={"fas fa-star"}></i>
@@ -22,7 +22,7 @@ function HomeMovieSection() {
                                 <i className={"fas fa-star"}></i>
                                 <i className={"fas fa-star"}></i>
                             </p>
-                            <p className={"px-3 fw-bold"}>8.2</p>
+                            <p className={"px-3 fw-bold"}>8.6</p>
                         </div>
                         <p className={"blur-bg"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto,
                             dicta dignissimos enim exercitationem maxime non odio perferendis perspiciatis recusandae
@@ -35,17 +35,17 @@ function HomeMovieSection() {
                 <div className={"col-sm-4 d-flex flex-column align-items-center justify-content-around p-5"}>
                     <div className={"home-movie-card"}>
                         <img
-                            src="https://i.guim.co.uk/img/media/db61784a1206481f1324e816340ffc4989b2c73c/0_18_4000_2400/master/4000.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=ff6e84a8b285e7b80e3c7f04bf7a8ba1"
+                            src="https://static0.srcdn.com/wordpress/wp-content/uploads/2023/07/things-the-flash-series-does-better-than-movie.jpg"
                             alt=""/>
                     </div>
                     <div className={"home-movie-card"}>
                         <img
-                            src="https://i.guim.co.uk/img/media/db61784a1206481f1324e816340ffc4989b2c73c/0_18_4000_2400/master/4000.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=ff6e84a8b285e7b80e3c7f04bf7a8ba1"
+                            src="https://www.hindustantimes.com/ht-img/img/2023/08/28/1600x900/FqzBIW2aQAA3AVq_1693214544605_1693214550714.jfif"
                             alt=""/>
                     </div>
                     <div className={"home-movie-card"}>
                         <img
-                            src="https://i.guim.co.uk/img/media/db61784a1206481f1324e816340ffc4989b2c73c/0_18_4000_2400/master/4000.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=ff6e84a8b285e7b80e3c7f04bf7a8ba1"
+                            src="https://deadline.com/wp-content/uploads/2016/03/supergirl-flash-crossover-march-28.jpg?w=630"
                             alt=""/>
                     </div>
                 </div>

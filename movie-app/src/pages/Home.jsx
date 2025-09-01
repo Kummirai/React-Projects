@@ -9,6 +9,7 @@ import Footer from "../components/Footer.jsx";
 import Hero from "../components/Hero.jsx";
 import Pagination from "../components/Pagination.jsx";
 import HomeMovieSection from "../components/HomeMovieSection.jsx";
+import HomeSeriessSection from "../components/HomeSeriessSection.jsx";
 
 const Home = () => {
 
@@ -39,6 +40,7 @@ const Home = () => {
                     <TVShowsContainer movies={movies} heading="TV Shows"/>
                     <HomeMovieSection/>
                     <MoviesContainer movies={upComing} heading="Movies"/>
+                    <HomeSeriessSection/>
                 </div>
             </div>
             <Footer/>
